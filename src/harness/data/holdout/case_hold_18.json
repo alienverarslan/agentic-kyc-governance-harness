@@ -1,0 +1,64 @@
+{
+  "dossier_id": "HOLD-0018",
+  "dossier": {
+    "registry": {
+      "document_date": "2024-11-27",
+      "legal_name": "Munzur Elektrik Üretim Anonim Şirketi",
+      "tax_id": "4703185926",
+      "incorporation_date": "2008-02-14",
+      "registered_address": "Rızaiye Mah. Malatya Cad. No:88, Merkez, Elazığ",
+      "share_capital": 10000000,
+      "shareholders": [
+        {"name": "Ferhat Alptekin", "ownership_pct": 40.0},
+        {"name": "Nurhan Alptekin", "ownership_pct": 35.0},
+        {"name": "İsmail Kepenek", "ownership_pct": 15.0},
+        {"name": "Naciye Bozkurt", "ownership_pct": 10.0}
+      ],
+      "company_status": "active"
+    },
+    "circular": {
+      "document_date": "2025-01-08",
+      "legal_name": "Munzur Elektrik Üretim Anonim Şirketi",
+      "tax_id": "4703185926",
+      "authorized_signatories": [
+        {"name": "Ferhat Alptekin", "authority_type": "joint", "valid_until": "2029-01-08"},
+        {"name": "Nurhan Alptekin", "authority_type": "joint", "valid_until": "2029-01-08"}
+      ],
+      "notary_reference": "Elazığ 3. Noterliği 2025/00517"
+    },
+    "ubo": {
+      "document_date": "2025-06-04",
+      "legal_name": "Munzur Elektrik Üretim Anonim Şirketi",
+      "tax_id": "4703185926",
+      "shareholders": [
+        {"name": "Ferhat Alptekin", "ownership_pct": 40.0},
+        {"name": "Nurhan Alptekin", "ownership_pct": 35.0},
+        {"name": "İsmail Kepenek", "ownership_pct": 15.0},
+        {"name": "Naciye Bozkurt", "ownership_pct": 10.0}
+      ],
+      "declared_ubo": [
+        {"name": "Ferhat Alptekin", "ultimate_ownership_pct": 40.0, "ownership_path": "doğrudan pay sahipliği"},
+        {"name": "Nurhan Alptekin", "ultimate_ownership_pct": 35.0, "ownership_path": "doğrudan pay sahipliği"}
+      ],
+      "declarant_name": "Nurhan Alptekin"
+    }
+  },
+  "decision_truth": {
+    "expected_decision": "approve",
+    "expected_trajectory": [
+      "extract",
+      "resolve_entities",
+      "check_identity_consistency",
+      "check_ownership_consistency",
+      "check_authority_chain",
+      "check_ubo_derivation",
+      "check_completeness",
+      "synthesize",
+      "guardrail",
+      "act"
+    ],
+    "expected_skipped_checks": [],
+    "injected_codes": ["NONE"],
+    "rationale": "Temiz ama hold_01'den yapısal olarak farklı: dört ortaklı dağınık sermaye yapısı ve beyanı ortaklardan yalnızca biri değil, İKİNCİ müşterek imza yetkilisi (Nurhan Alptekin) imzalıyor. Yanlış pozitif nöbetçisi olarak iki eşik-altı ortak (İsmail Kepenek %15, Naciye Bozkurt %10) declared_ubo'da kasıtlı olarak yer almaz — bu meşrudur ve D1a üretmemelidir; beyan edilen toplam %75'tir, bu da eksiklik değildir çünkü eşik-üstü tüm ortaklar beyan edilmiştir. Kimlik, ortaklık (%100, özdeş listeler) ve yetki zinciri temiz → hiçbir bulgu, karar approve."
+  }
+}

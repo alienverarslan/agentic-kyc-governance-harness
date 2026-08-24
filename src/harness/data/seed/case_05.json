@@ -1,0 +1,60 @@
+{
+  "dossier_id": "DOS-0005",
+  "dossier": {
+    "registry": {
+      "document_date": "2025-09-01",
+      "legal_name": "Aslan Otomotiv Yedek Parça Sanayi ve Ticaret Ltd. Şti.",
+      "tax_id": "7742185039",
+      "incorporation_date": "2015-04-14",
+      "registered_address": "Sanayi Mah. 4. Cad. No:61, Şehitkamil, Gaziantep",
+      "share_capital": 900000,
+      "shareholders": [
+        {"name": "Ali Demir", "ownership_pct": 60.0},
+        {"name": "Ayşe Demir", "ownership_pct": 40.0}
+      ],
+      "company_status": "active"
+    },
+    "circular": {
+      "document_date": "2025-09-18",
+      "legal_name": "Aslan Otomotiv Yedek Parça Sanayi ve Ticaret Ltd. Şti.",
+      "tax_id": "7742185039",
+      "authorized_signatories": [
+        {"name": "Ali Demir", "authority_type": "sole", "valid_until": "2028-09-18"}
+      ],
+      "notary_reference": "Gaziantep 7. Noterliği 2025/24461"
+    },
+    "ubo": {
+      "document_date": "2023-05-20",
+      "legal_name": "Aslan Otomotiv Yedek Parça Sanayi ve Ticaret Ltd. Şti.",
+      "tax_id": "7742185039",
+      "shareholders": [
+        {"name": "Ali Demir", "ownership_pct": 40.0},
+        {"name": "Ayşe Demir", "ownership_pct": 30.0},
+        {"name": "Kemal Aslan", "ownership_pct": 30.0}
+      ],
+      "declared_ubo": [
+        {"name": "Ali Demir", "ultimate_ownership_pct": 40.0, "ownership_path": "doğrudan pay sahipliği"},
+        {"name": "Ayşe Demir", "ultimate_ownership_pct": 30.0, "ownership_path": "doğrudan pay sahipliği"},
+        {"name": "Kemal Aslan", "ultimate_ownership_pct": 30.0, "ownership_path": "doğrudan pay sahipliği"}
+      ],
+      "declarant_name": "Ali Demir"
+    }
+  },
+  "decision_truth": {
+    "expected_decision": "escalate",
+    "expected_trajectory": [
+      "extract",
+      "resolve_entities",
+      "check_identity_consistency",
+      "check_ownership_consistency",
+      "check_authority_chain",
+      "check_completeness",
+      "synthesize",
+      "guardrail",
+      "act"
+    ],
+    "expected_skipped_checks": [],
+    "injected_codes": ["B1b"],
+    "rationale": "Açıklanamaz ortaklık uyuşmazlığı. UBO beyanı (2023-05-20) sicilden (2025-09-01) ESKİ ve yapı farklı (üç ortak vs iki ortak). Zamansal öncelik kuralı gereği güncel yapı sicildeki; ama dosyada güncel yapıyı beyan eden geçerli bir UBO beyanı YOK — eldeki beyan bayat ve mevcut yapıyla çelişiyor. 'Yeni beyan iste' (request_more_info) yeterince güçlü değil çünkü bayat beyanın kasıtlı sunulmuş olma ihtimali (UBO gizleme paterni) otonom değerlendirilemez → escalate. B1a (#4) ile tek yapısal fark tarih yönü: orada B3 yeni ve delta açıklanabilir, burada B3 eski. Ownership check'in delta mantığı bu iki dosyayı AYRIŞTIRMAK zorunda; ayrıştıramıyorsa hata check'tedir."
+  }
+}

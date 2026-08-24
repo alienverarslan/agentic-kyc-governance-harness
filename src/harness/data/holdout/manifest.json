@@ -1,0 +1,441 @@
+{
+  "schema_version": "1.0.0",
+  "corpus_name": "deterministic_holdout",
+  "corpus_version": "1.0.0",
+  "frozen_at_utc": "2026-07-19T14:53:38Z",
+  "scope": "in_coverage",
+  "scope_note": "Novel hand-authored cases whose issues fall INSIDE the deterministic checks' existing coverage. Measures generalization to novel cases, not to novel phenomena; out-of-coverage generalization is P4.",
+  "authoring_note": "Hand-authored, never drawn from the synthetic generator: a different generator seed would test reproducibility, not generalization. Independence is sought in cities, districts, streets, sectors, company cores, personal names, legal-suffix surface forms, and ownership structures, none of which are taken from harness/generate/pools.py.",
+  "case_count": 18,
+  "corpus_hash": "sha256:c6602780fe59a0f550aaa75ad5934ba3c1d2816fb43bd9956014c6d90ee88a6d",
+  "hash_method": "sha256 over canonical json (sorted keys, compact separators, utf-8) of each case's {dossier, decision_truth} AFTER contract-model normalization, ordered by case_id; invariant to whitespace/key-order/line-endings, sensitive to every meaning-bearing change",
+  "cases": [
+    {
+      "case_id": "hold_01",
+      "sha256": "sha256:b6e661dfd96bd219d7f3d0d2dda9582cb3d7d86f9b901f0a30d767d1544b11c8",
+      "injected_codes": [
+        "NONE"
+      ],
+      "expected_decision": "approve"
+    },
+    {
+      "case_id": "hold_02",
+      "sha256": "sha256:91d84ee4d8f661b91048f17bb036b79aab8257ab5a4f88651692dd1332df66f0",
+      "injected_codes": [
+        "A1"
+      ],
+      "expected_decision": "approve"
+    },
+    {
+      "case_id": "hold_03",
+      "sha256": "sha256:bf6d537cd4fd95b8e3d2e7ba062fa6da10c997a8f3eb7e91c6ebe6566f509c2a",
+      "injected_codes": [
+        "A1"
+      ],
+      "expected_decision": "approve"
+    },
+    {
+      "case_id": "hold_04",
+      "sha256": "sha256:6275baec770df9d98357ce12b55d48175c76726fec2731536c1c723d962fe653",
+      "injected_codes": [
+        "A2"
+      ],
+      "expected_decision": "escalate"
+    },
+    {
+      "case_id": "hold_05",
+      "sha256": "sha256:87d309f32ffe555a6337437196cc92980bc191e0a2763266c57236104bf2555d",
+      "injected_codes": [
+        "B1a"
+      ],
+      "expected_decision": "request_more_info"
+    },
+    {
+      "case_id": "hold_06",
+      "sha256": "sha256:67bd97f1092197c23d0d0f325540f3b5ed9292bede306541ba75b8828ea2ee49",
+      "injected_codes": [
+        "B1b"
+      ],
+      "expected_decision": "escalate"
+    },
+    {
+      "case_id": "hold_07",
+      "sha256": "sha256:0e7a4db53ca6c5c51aa0e9f925d72dee32c686b110567c6ecdab731739d6cb23",
+      "injected_codes": [
+        "B2a"
+      ],
+      "expected_decision": "request_more_info"
+    },
+    {
+      "case_id": "hold_08",
+      "sha256": "sha256:7e2a2075eb067f72f8cbbe4e6481efc9e26a46c9fbdd36cb25597495bef8cc0d",
+      "injected_codes": [
+        "B2b"
+      ],
+      "expected_decision": "escalate"
+    },
+    {
+      "case_id": "hold_09",
+      "sha256": "sha256:c238d269ce71419813d608c8556f06fcf4df2356b015402666d91a99f1c7620e",
+      "injected_codes": [
+        "C1a"
+      ],
+      "expected_decision": "request_more_info"
+    },
+    {
+      "case_id": "hold_10",
+      "sha256": "sha256:14389203d96cd7e9e7148c82d3f7e93bbc653dee571ae290679fcc80bf0c2b6b",
+      "injected_codes": [
+        "C1b"
+      ],
+      "expected_decision": "escalate"
+    },
+    {
+      "case_id": "hold_11",
+      "sha256": "sha256:63642a6db4163be3ac35ce4064a303cb065a543dcb790ef467c46a7f883af2e6",
+      "injected_codes": [
+        "C2"
+      ],
+      "expected_decision": "request_more_info"
+    },
+    {
+      "case_id": "hold_12",
+      "sha256": "sha256:9d94dcf1cc46aab4dba15d97f8d5de2fe08a60c8f8e39b5a477b8dbf22a59372",
+      "injected_codes": [
+        "D1a"
+      ],
+      "expected_decision": "request_more_info"
+    },
+    {
+      "case_id": "hold_13",
+      "sha256": "sha256:a5ea1a1942d2f592a67dbfb04fe75c7a0c9214d42a048688dba3cd2b87a8cafc",
+      "injected_codes": [
+        "D1b"
+      ],
+      "expected_decision": "escalate"
+    },
+    {
+      "case_id": "hold_14",
+      "sha256": "sha256:2139853aff773784d1b08df08a6ea2b5ab44fc0c86071fdf73d2e101a6c38139",
+      "injected_codes": [
+        "E1"
+      ],
+      "expected_decision": "request_more_info"
+    },
+    {
+      "case_id": "hold_15",
+      "sha256": "sha256:7a36e8a65cb29ab00ee2cdf7552f87614e54de926a5194f0ce5b78cf7eb6ba65",
+      "injected_codes": [
+        "E2"
+      ],
+      "expected_decision": "request_more_info"
+    },
+    {
+      "case_id": "hold_16",
+      "sha256": "sha256:aaa6a0128017da33194b1e875a5cb4d2ee2546fbf9398c92d328d67d9b1c6220",
+      "injected_codes": [
+        "A1",
+        "B2a"
+      ],
+      "expected_decision": "request_more_info"
+    },
+    {
+      "case_id": "hold_17",
+      "sha256": "sha256:35f66adfcff1fcb682f962e47aafae2b9adfc3a20b6b5cad5d9482e0e9bbd78f",
+      "injected_codes": [
+        "A2",
+        "B1a"
+      ],
+      "expected_decision": "escalate"
+    },
+    {
+      "case_id": "hold_18",
+      "sha256": "sha256:7c20bf17ebe63984d8f39d0521a1d8a105773d3c5f175fddf717c151c58357fe",
+      "injected_codes": [
+        "NONE"
+      ],
+      "expected_decision": "approve"
+    }
+  ],
+  "git": {
+    "commit_sha": "cdf8cbc212d96a4d63e63acbcc169ae003d47394",
+    "dirty": true
+  },
+  "observed_at_freeze": {
+    "note": "snapshot of harness behavior at freeze time; the per-case decision_truth in each fixture is the expectation, this is the observation",
+    "decision_match_count": 18,
+    "finding_match_count": 18,
+    "trajectory_match_count": 18,
+    "case_count": 18,
+    "false_approval_rate": {
+      "k": 0,
+      "n": 14,
+      "point_estimate": 0.0,
+      "wilson_ci_95": [
+        1.3877787807814457e-17,
+        0.2153108027376358
+      ],
+      "cases": [],
+      "interpretation": "EMPIRICAL, corpus-scoped rate — it depends on the deterministic checks actually catching each authored case, and is not a structural guarantee. The Wilson 95% CI quantifies sampling uncertainty at this corpus size; it does not extend the claim beyond this corpus. The only structural invariant is SYSTEM-origin-implies-no-approve."
+    },
+    "per_case": [
+      {
+        "case_id": "hold_01",
+        "expected_decision": "approve",
+        "observed_decision": "approve",
+        "expected_codes": [
+          "NONE"
+        ],
+        "observed_codes": [
+          "NONE"
+        ],
+        "decision_match": true,
+        "finding_match": true,
+        "trajectory_match": true
+      },
+      {
+        "case_id": "hold_02",
+        "expected_decision": "approve",
+        "observed_decision": "approve",
+        "expected_codes": [
+          "A1"
+        ],
+        "observed_codes": [
+          "A1"
+        ],
+        "decision_match": true,
+        "finding_match": true,
+        "trajectory_match": true
+      },
+      {
+        "case_id": "hold_03",
+        "expected_decision": "approve",
+        "observed_decision": "approve",
+        "expected_codes": [
+          "A1"
+        ],
+        "observed_codes": [
+          "A1"
+        ],
+        "decision_match": true,
+        "finding_match": true,
+        "trajectory_match": true
+      },
+      {
+        "case_id": "hold_04",
+        "expected_decision": "escalate",
+        "observed_decision": "escalate",
+        "expected_codes": [
+          "A2"
+        ],
+        "observed_codes": [
+          "A2"
+        ],
+        "decision_match": true,
+        "finding_match": true,
+        "trajectory_match": true
+      },
+      {
+        "case_id": "hold_05",
+        "expected_decision": "request_more_info",
+        "observed_decision": "request_more_info",
+        "expected_codes": [
+          "B1a"
+        ],
+        "observed_codes": [
+          "B1a"
+        ],
+        "decision_match": true,
+        "finding_match": true,
+        "trajectory_match": true
+      },
+      {
+        "case_id": "hold_06",
+        "expected_decision": "escalate",
+        "observed_decision": "escalate",
+        "expected_codes": [
+          "B1b"
+        ],
+        "observed_codes": [
+          "B1b"
+        ],
+        "decision_match": true,
+        "finding_match": true,
+        "trajectory_match": true
+      },
+      {
+        "case_id": "hold_07",
+        "expected_decision": "request_more_info",
+        "observed_decision": "request_more_info",
+        "expected_codes": [
+          "B2a"
+        ],
+        "observed_codes": [
+          "B2a"
+        ],
+        "decision_match": true,
+        "finding_match": true,
+        "trajectory_match": true
+      },
+      {
+        "case_id": "hold_08",
+        "expected_decision": "escalate",
+        "observed_decision": "escalate",
+        "expected_codes": [
+          "B2b"
+        ],
+        "observed_codes": [
+          "B2b"
+        ],
+        "decision_match": true,
+        "finding_match": true,
+        "trajectory_match": true
+      },
+      {
+        "case_id": "hold_09",
+        "expected_decision": "request_more_info",
+        "observed_decision": "request_more_info",
+        "expected_codes": [
+          "C1a"
+        ],
+        "observed_codes": [
+          "C1a"
+        ],
+        "decision_match": true,
+        "finding_match": true,
+        "trajectory_match": true
+      },
+      {
+        "case_id": "hold_10",
+        "expected_decision": "escalate",
+        "observed_decision": "escalate",
+        "expected_codes": [
+          "C1b"
+        ],
+        "observed_codes": [
+          "C1b"
+        ],
+        "decision_match": true,
+        "finding_match": true,
+        "trajectory_match": true
+      },
+      {
+        "case_id": "hold_11",
+        "expected_decision": "request_more_info",
+        "observed_decision": "request_more_info",
+        "expected_codes": [
+          "C2"
+        ],
+        "observed_codes": [
+          "C2"
+        ],
+        "decision_match": true,
+        "finding_match": true,
+        "trajectory_match": true
+      },
+      {
+        "case_id": "hold_12",
+        "expected_decision": "request_more_info",
+        "observed_decision": "request_more_info",
+        "expected_codes": [
+          "D1a"
+        ],
+        "observed_codes": [
+          "D1a"
+        ],
+        "decision_match": true,
+        "finding_match": true,
+        "trajectory_match": true
+      },
+      {
+        "case_id": "hold_13",
+        "expected_decision": "escalate",
+        "observed_decision": "escalate",
+        "expected_codes": [
+          "D1b"
+        ],
+        "observed_codes": [
+          "D1b"
+        ],
+        "decision_match": true,
+        "finding_match": true,
+        "trajectory_match": true
+      },
+      {
+        "case_id": "hold_14",
+        "expected_decision": "request_more_info",
+        "observed_decision": "request_more_info",
+        "expected_codes": [
+          "E1"
+        ],
+        "observed_codes": [
+          "E1"
+        ],
+        "decision_match": true,
+        "finding_match": true,
+        "trajectory_match": true
+      },
+      {
+        "case_id": "hold_15",
+        "expected_decision": "request_more_info",
+        "observed_decision": "request_more_info",
+        "expected_codes": [
+          "E2"
+        ],
+        "observed_codes": [
+          "E2"
+        ],
+        "decision_match": true,
+        "finding_match": true,
+        "trajectory_match": true
+      },
+      {
+        "case_id": "hold_16",
+        "expected_decision": "request_more_info",
+        "observed_decision": "request_more_info",
+        "expected_codes": [
+          "A1",
+          "B2a"
+        ],
+        "observed_codes": [
+          "A1",
+          "B2a"
+        ],
+        "decision_match": true,
+        "finding_match": true,
+        "trajectory_match": true
+      },
+      {
+        "case_id": "hold_17",
+        "expected_decision": "escalate",
+        "observed_decision": "escalate",
+        "expected_codes": [
+          "A2",
+          "B1a"
+        ],
+        "observed_codes": [
+          "A2",
+          "B1a"
+        ],
+        "decision_match": true,
+        "finding_match": true,
+        "trajectory_match": true
+      },
+      {
+        "case_id": "hold_18",
+        "expected_decision": "approve",
+        "observed_decision": "approve",
+        "expected_codes": [
+          "NONE"
+        ],
+        "observed_codes": [
+          "NONE"
+        ],
+        "decision_match": true,
+        "finding_match": true,
+        "trajectory_match": true
+      }
+    ]
+  },
+  "corrections": []
+}

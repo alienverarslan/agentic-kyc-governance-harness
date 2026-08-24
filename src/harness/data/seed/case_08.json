@@ -1,0 +1,47 @@
+{
+  "dossier_id": "DOS-0008",
+  "dossier": {
+    "registry": {
+      "document_date": "2025-08-19",
+      "legal_name": "Derya Enerji Sistemleri Sanayi ve Ticaret A.Ş.",
+      "tax_id": "8123679450",
+      "incorporation_date": "2020-12-10",
+      "registered_address": "Teknopark Bulvarı No:1/4C, Pendik, İstanbul",
+      "share_capital": 3000000,
+      "shareholders": [
+        {"name": "Derya Koç", "ownership_pct": 51.0},
+        {"name": "Tolga Koç", "ownership_pct": 29.0},
+        {"name": "Ferhat Yılmaz", "ownership_pct": 20.0}
+      ],
+      "company_status": "active"
+    },
+    "circular": {
+      "document_date": "2025-09-02",
+      "legal_name": "Derya Enerji Sistemleri Sanayi ve Ticaret A.Ş.",
+      "tax_id": "8123679450",
+      "authorized_signatories": [
+        {"name": "Derya Koç", "authority_type": "sole", "valid_until": "2028-09-02"}
+      ],
+      "notary_reference": "İstanbul 41. Noterliği 2025/55830"
+    },
+    "ubo": null
+  },
+  "decision_truth": {
+    "expected_decision": "request_more_info",
+    "expected_trajectory": [
+      "extract",
+      "resolve_entities",
+      "check_identity_consistency",
+      "check_completeness",
+      "synthesize",
+      "guardrail",
+      "act"
+    ],
+    "expected_skipped_checks": [
+      "check_ownership_consistency",
+      "check_authority_chain"
+    ],
+    "injected_codes": ["E1"],
+    "rationale": "Eksik belge: UBO beyanı dosyada yok. check_completeness E1 üretir → request_more_info (beyanı iste). Kritik trajektori özelliği: ownership kontrolü (B1×B3) ve authority kontrolü (B2×B3) B3 olmadan ÇALIŞAMAZ — bu kontroller ran=False/skipped olarak loglanmalı ve beklenen trajektori bunu yansıtır. Identity kontrolü B1×B2 üzerinde kısmi çalışabilir (iki belge tutarlı). Ajan çalışamayan kontrolü 'çalıştı ve temiz' gibi raporlarsa bu trajektori hatasıdır — eksik veriyle sessizce ilerleme, harness'ın yakalamak için var olduğu davranıştır."
+  }
+}

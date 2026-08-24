@@ -1,0 +1,59 @@
+{
+  "dossier_id": "HOLD-0007",
+  "dossier": {
+    "registry": {
+      "document_date": "2024-10-30",
+      "legal_name": "Harman Zeytincilik Sanayi ve Ticaret Ltd. Şti.",
+      "tax_id": "4185027396",
+      "incorporation_date": "2016-01-14",
+      "registered_address": "Atatürk Mah. Zeytinli Cad. No:39, Karesi, Balıkesir",
+      "share_capital": 1250000,
+      "shareholders": [
+        {"name": "İsmail Gündoğdu", "ownership_pct": 55.0},
+        {"name": "Zehra Gündoğdu", "ownership_pct": 30.0}
+      ],
+      "company_status": "active"
+    },
+    "circular": {
+      "document_date": "2024-12-08",
+      "legal_name": "Harman Zeytincilik Sanayi ve Ticaret Ltd. Şti.",
+      "tax_id": "4185027396",
+      "authorized_signatories": [
+        {"name": "İsmail Gündoğdu", "authority_type": "sole", "valid_until": "2028-12-08"}
+      ],
+      "notary_reference": "Balıkesir 3. Noterliği 2024/19204"
+    },
+    "ubo": {
+      "document_date": "2025-03-25",
+      "legal_name": "Harman Zeytincilik Sanayi ve Ticaret Ltd. Şti.",
+      "tax_id": "4185027396",
+      "shareholders": [
+        {"name": "İsmail Gündoğdu", "ownership_pct": 55.0},
+        {"name": "Zehra Gündoğdu", "ownership_pct": 30.0}
+      ],
+      "declared_ubo": [
+        {"name": "İsmail Gündoğdu", "ultimate_ownership_pct": 55.0, "ownership_path": "doğrudan pay sahipliği"},
+        {"name": "Zehra Gündoğdu", "ultimate_ownership_pct": 30.0, "ownership_path": "doğrudan pay sahipliği"}
+      ],
+      "declarant_name": "İsmail Gündoğdu"
+    }
+  },
+  "decision_truth": {
+    "expected_decision": "request_more_info",
+    "expected_trajectory": [
+      "extract",
+      "resolve_entities",
+      "check_identity_consistency",
+      "check_ownership_consistency",
+      "check_authority_chain",
+      "check_ubo_derivation",
+      "check_completeness",
+      "synthesize",
+      "guardrail",
+      "act"
+    ],
+    "expected_skipped_checks": [],
+    "injected_codes": ["B2a"],
+    "rationale": "Her iki belgedeki ortaklık listesi de %85'e toplanıyor (%55 + %30); %100'e %15'lik bir boşluk var. Bu, tek bir eksik pay kaydıyla kapanabilir bir eksiklik olarak yorumlanır → B2a, explainable, request_more_info. Toplam kontrolü yapı karşılaştırmasından ÖNCE çalışıp erken döndüğü için B1a/B1b üretilmez. Beyan edilen UBO toplamı da %85 olduğundan (>%100 değil) D1b yoktur ve eşik üstü her iki ortak beyan edildiği için D1a yoktur."
+  }
+}

@@ -1,0 +1,58 @@
+{
+  "dossier_id": "DOS-0003",
+  "dossier": {
+    "registry": {
+      "document_date": "2024-10-08",
+      "legal_name": "Işık İnşaat Taahhüt Sanayi ve Ticaret Limited Şirketi",
+      "tax_id": "6614029873",
+      "incorporation_date": "2018-05-22",
+      "registered_address": "Yenişehir Mah. İnönü Bulvarı No:112, Çankaya, Ankara",
+      "share_capital": 750000,
+      "shareholders": [
+        {"name": "İlker Işık", "ownership_pct": 70.0},
+        {"name": "Sıla Işık", "ownership_pct": 30.0}
+      ],
+      "company_status": "active"
+    },
+    "circular": {
+      "document_date": "2024-11-02",
+      "legal_name": "IŞIK İNŞAAT TAAHHÜT SAN. VE TİC. LTD. ŞTİ.",
+      "tax_id": "6614029873",
+      "authorized_signatories": [
+        {"name": "İLKER IŞIK", "authority_type": "sole", "valid_until": "2027-11-02"}
+      ],
+      "notary_reference": "Ankara 21. Noterliği 2024/33907"
+    },
+    "ubo": {
+      "document_date": "2025-04-17",
+      "legal_name": "Isik Insaat Taahhut Ltd Sti",
+      "tax_id": "6614029873",
+      "shareholders": [
+        {"name": "Ilker Isik", "ownership_pct": 70.0},
+        {"name": "Sila Isik", "ownership_pct": 30.0}
+      ],
+      "declared_ubo": [
+        {"name": "Ilker Isik", "ultimate_ownership_pct": 70.0, "ownership_path": "doğrudan pay sahipliği"},
+        {"name": "Sila Isik", "ultimate_ownership_pct": 30.0, "ownership_path": "doğrudan pay sahipliği"}
+      ],
+      "declarant_name": "Ilker Isik"
+    }
+  },
+  "decision_truth": {
+    "expected_decision": "approve",
+    "expected_trajectory": [
+      "extract",
+      "resolve_entities",
+      "check_identity_consistency",
+      "check_ownership_consistency",
+      "check_authority_chain",
+      "check_completeness",
+      "synthesize",
+      "guardrail",
+      "act"
+    ],
+    "expected_skipped_checks": [],
+    "injected_codes": ["A1"],
+    "rationale": "İyi huylu isim varyasyonu — çelişki DEĞİL. Aynı entity üç yazımla: (1) tam resmî unvan, (2) tümü büyük harf + kısaltılmış ekler ('SAN. VE TİC. LTD. ŞTİ.', 'IŞIK' = 'Işık' Türkçe büyük harf kuralıyla, 'İLKER' = 'İlker'), (3) ASCII-bozunmuş varyant (diyakritik düşmüş: 'Isik', 'Insaat', 'Ltd Sti'). VKN üç belgede aynı: kimlik zinciri sağlam. Ortaklık, yetki ve bütünlük temiz. Naif casefold/lower ya da ham string karşılaştırması bu dosyayı yanlış pozitife (sahte kimlik çelişkisi) düşürür — bu dosyanın varlık amacı tam olarak o hatayı yakalamaktır. check_identity_consistency A1/info bulgusu üretebilir ama karar approve kalmalıdır."
+  }
+}

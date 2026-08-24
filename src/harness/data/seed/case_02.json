@@ -1,0 +1,61 @@
+{
+  "dossier_id": "DOS-0002",
+  "dossier": {
+    "registry": {
+      "document_date": "2025-03-05",
+      "legal_name": "Yıldız Makine Sanayi A.Ş.",
+      "tax_id": "9057318264",
+      "incorporation_date": "2009-11-30",
+      "registered_address": "Organize Sanayi Bölgesi 12. Cad. No:8, Nilüfer, Bursa",
+      "share_capital": 2500000,
+      "shareholders": [
+        {"name": "Cemil Yıldız", "ownership_pct": 45.0},
+        {"name": "Nurten Yıldız", "ownership_pct": 35.0},
+        {"name": "Oğuz Kaan Erdem", "ownership_pct": 20.0}
+      ],
+      "company_status": "active"
+    },
+    "circular": {
+      "document_date": "2025-03-20",
+      "legal_name": "Yıldız Makine Sanayi A.Ş.",
+      "tax_id": "9057318264",
+      "authorized_signatories": [
+        {"name": "Cemil Yıldız", "authority_type": "joint", "valid_until": "2028-03-20"},
+        {"name": "Nurten Yıldız", "authority_type": "joint", "valid_until": "2028-03-20"}
+      ],
+      "notary_reference": "Bursa 3. Noterliği 2025/07715"
+    },
+    "ubo": {
+      "document_date": "2025-09-14",
+      "legal_name": "Yıldız Makine Sanayi A.Ş.",
+      "tax_id": "9057318264",
+      "shareholders": [
+        {"name": "Cemil Yıldız", "ownership_pct": 45.0},
+        {"name": "Nurten Yıldız", "ownership_pct": 35.0},
+        {"name": "Oğuz Kaan Erdem", "ownership_pct": 20.0}
+      ],
+      "declared_ubo": [
+        {"name": "Cemil Yıldız", "ultimate_ownership_pct": 45.0, "ownership_path": "doğrudan pay sahipliği"},
+        {"name": "Nurten Yıldız", "ultimate_ownership_pct": 35.0, "ownership_path": "doğrudan pay sahipliği"}
+      ],
+      "declarant_name": "Nurten Yıldız"
+    }
+  },
+  "decision_truth": {
+    "expected_decision": "approve",
+    "expected_trajectory": [
+      "extract",
+      "resolve_entities",
+      "check_identity_consistency",
+      "check_ownership_consistency",
+      "check_authority_chain",
+      "check_completeness",
+      "synthesize",
+      "guardrail",
+      "act"
+    ],
+    "expected_skipped_checks": [],
+    "injected_codes": ["NONE"],
+    "rationale": "Tam ve tutarlı dosya, #1'den farklı özelliklerle: A.Ş. formu, üç ortak, müşterek (joint) imza yetkisi, %20 ortak UBO eşiğinin altında olduğu için declared_ubo listesinde yer almıyor — bu bir eksiklik DEĞİL (UBO eşiği %25). Declarant Nurten Yıldız sirküde geçerli yetkili. Hiçbir kontrol bulgu üretmemeli; özellikle check_ubo_derivation stub'ı ileride bu dosyayı yanlış pozitife düşürmemeli."
+  }
+}

@@ -1,0 +1,41 @@
+{
+  "schema_version": "1.0.0",
+  "corpus_name": "seed",
+  "note": "Enforces the long-standing 'the 8 seed fixtures are never edited' invariant. If a seed case must genuinely change, that is a deliberate act requiring this pin to be regenerated in the same commit, with the reason recorded.",
+  "case_count": 8,
+  "corpus_hash": "sha256:89901841d265eb373a1376bfb89938e8a1200707230a30cceefb8f3d713a5f2d",
+  "cases": [
+    {
+      "case_id": "case_01",
+      "sha256": "sha256:4687b7256b84063230efc304fb32af1de8b10f9833e5604b6f61e419df502044"
+    },
+    {
+      "case_id": "case_02",
+      "sha256": "sha256:be031316b03420e9f01fc74849b20f0bbbe2e8e433bd132fef64e5eea5953dff"
+    },
+    {
+      "case_id": "case_03",
+      "sha256": "sha256:ccbbc5ad2b43bb56e10e2f59d8a3d30bab42d6a0df34c03aeaf9b41b5891cd48"
+    },
+    {
+      "case_id": "case_04",
+      "sha256": "sha256:41884ec99049eb63f2db161b60877791a6dfc068f625706efe760c6aabaa15c7"
+    },
+    {
+      "case_id": "case_05",
+      "sha256": "sha256:5cb77c9ce22884533522651fff40dd48acce9417a221646fa09768583e46b3ee"
+    },
+    {
+      "case_id": "case_06",
+      "sha256": "sha256:960c95201abc1756c7ee2c9c8c54f6acc93c5b06651e8b69cf82fdcc604a91bc"
+    },
+    {
+      "case_id": "case_07",
+      "sha256": "sha256:a7febdf298f7276346e993df4de8e38bca1fcff23ec16ea701d71cf47a1ca841"
+    },
+    {
+      "case_id": "case_08",
+      "sha256": "sha256:c935a3e36efdaf4f0b7b7c36b08657d6362ef64258512a7e096d6842da6e7177"
+    }
+  ]
+}

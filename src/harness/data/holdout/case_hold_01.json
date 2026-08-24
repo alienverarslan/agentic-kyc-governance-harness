@@ -1,0 +1,60 @@
+{
+  "dossier_id": "HOLD-0001",
+  "dossier": {
+    "registry": {
+      "document_date": "2024-10-14",
+      "legal_name": "Şelale Su Ürünleri Limited Şirketi",
+      "tax_id": "5820471963",
+      "incorporation_date": "2017-03-22",
+      "registered_address": "Liman Mah. Balıkçı Barınağı Cad. No:19, İlkadım, Samsun",
+      "share_capital": 1750000,
+      "shareholders": [
+        {"name": "Süleyman Bayraktar", "ownership_pct": 50.0},
+        {"name": "Rabia Bayraktar", "ownership_pct": 50.0}
+      ],
+      "company_status": "active"
+    },
+    "circular": {
+      "document_date": "2024-11-05",
+      "legal_name": "Şelale Su Ürünleri Limited Şirketi",
+      "tax_id": "5820471963",
+      "authorized_signatories": [
+        {"name": "Süleyman Bayraktar", "authority_type": "joint", "valid_until": "2027-11-05"},
+        {"name": "Rabia Bayraktar", "authority_type": "joint", "valid_until": "2027-11-05"}
+      ],
+      "notary_reference": "Samsun 6. Noterliği 2024/22981"
+    },
+    "ubo": {
+      "document_date": "2025-02-27",
+      "legal_name": "Şelale Su Ürünleri Limited Şirketi",
+      "tax_id": "5820471963",
+      "shareholders": [
+        {"name": "Süleyman Bayraktar", "ownership_pct": 50.0},
+        {"name": "Rabia Bayraktar", "ownership_pct": 50.0}
+      ],
+      "declared_ubo": [
+        {"name": "Süleyman Bayraktar", "ultimate_ownership_pct": 50.0, "ownership_path": "doğrudan pay sahipliği"},
+        {"name": "Rabia Bayraktar", "ultimate_ownership_pct": 50.0, "ownership_path": "doğrudan pay sahipliği"}
+      ],
+      "declarant_name": "Süleyman Bayraktar"
+    }
+  },
+  "decision_truth": {
+    "expected_decision": "approve",
+    "expected_trajectory": [
+      "extract",
+      "resolve_entities",
+      "check_identity_consistency",
+      "check_ownership_consistency",
+      "check_authority_chain",
+      "check_ubo_derivation",
+      "check_completeness",
+      "synthesize",
+      "guardrail",
+      "act"
+    ],
+    "expected_skipped_checks": [],
+    "injected_codes": ["NONE"],
+    "rationale": "Tam ve tutarlı dosya; eşit paylı iki ortak ve müşterek imza yapısı. Üç belgede unvan ve VKN birebir aynı; B1 ve B3 ortaklık listeleri özdeş ve toplam %100; beyanı imzalayan Süleyman Bayraktar sirkülerde müşterek imza yetkilisi ve yetkisi beyan tarihini kapsıyor; %25 eşiğinin üzerindeki her iki ortak da beyan edilmiş. Hiçbir kontrol bulgu üretmemeli."
+  }
+}

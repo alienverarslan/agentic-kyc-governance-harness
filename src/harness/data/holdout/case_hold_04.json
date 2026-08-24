@@ -1,0 +1,59 @@
+{
+  "dossier_id": "HOLD-0004",
+  "dossier": {
+    "registry": {
+      "document_date": "2024-09-05",
+      "legal_name": "Poyraz Soğutma Sistemleri Limited Şirketi",
+      "tax_id": "9074513862",
+      "incorporation_date": "2014-06-19",
+      "registered_address": "Bahçelievler Mah. Otogar Cad. No:63, Yenişehir, Mersin",
+      "share_capital": 4100000,
+      "shareholders": [
+        {"name": "Yavuz Duraklı", "ownership_pct": 70.0},
+        {"name": "Melike Duraklı", "ownership_pct": 30.0}
+      ],
+      "company_status": "active"
+    },
+    "circular": {
+      "document_date": "2024-10-17",
+      "legal_name": "Poyraz Soğutma Sistemleri Limited Şirketi",
+      "tax_id": "9074513862",
+      "authorized_signatories": [
+        {"name": "Yavuz Duraklı", "authority_type": "sole", "valid_until": "2028-10-17"}
+      ],
+      "notary_reference": "Mersin 8. Noterliği 2024/26154"
+    },
+    "ubo": {
+      "document_date": "2025-03-13",
+      "legal_name": "Poyraz Soğutma Sistemleri Limited Şirketi",
+      "tax_id": "9074513826",
+      "shareholders": [
+        {"name": "Yavuz Duraklı", "ownership_pct": 70.0},
+        {"name": "Melike Duraklı", "ownership_pct": 30.0}
+      ],
+      "declared_ubo": [
+        {"name": "Yavuz Duraklı", "ultimate_ownership_pct": 70.0, "ownership_path": "doğrudan pay sahipliği"},
+        {"name": "Melike Duraklı", "ultimate_ownership_pct": 30.0, "ownership_path": "doğrudan pay sahipliği"}
+      ],
+      "declarant_name": "Yavuz Duraklı"
+    }
+  },
+  "decision_truth": {
+    "expected_decision": "escalate",
+    "expected_trajectory": [
+      "extract",
+      "resolve_entities",
+      "check_identity_consistency",
+      "check_ownership_consistency",
+      "check_authority_chain",
+      "check_ubo_derivation",
+      "check_completeness",
+      "synthesize",
+      "guardrail",
+      "act"
+    ],
+    "expected_skipped_checks": [],
+    "injected_codes": ["A2"],
+    "rationale": "UBO beyanındaki VKN son iki hanesi yer değiştirmiş (9074513862 → 9074513826). Unvan üç belgede birebir aynı yazıldığı için A1 tetiklenmez; kimlik alanında tek fark VKN'dir. Kimlik çelişkisi tek belgeye dayanan iyi niyetli bir açıklamaya kapalıdır → A2, unexplainable, escalate. Ortaklık, yetki ve UBO türetimi kontrolleri temizdir."
+  }
+}

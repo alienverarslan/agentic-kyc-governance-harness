@@ -1,0 +1,26 @@
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+.pytest_cache/
+.venv/
+venv/
+
+# Env / secrets
+.env
+
+# Runtime artifacts
+artifacts/
+*.db
+
+# Build outputs (produced by scripts/verify_distribution.sh and by CI)
+build/
+dist/
+
+# Working-session scratch: hand-off notes and per-session summaries. These are working
+# aids, not project history — the durable record lives in DECISIONS.md and docs/.
+sessions/
+next_session_prompt.md
+
+# OS
+.DS_Store

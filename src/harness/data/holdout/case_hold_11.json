@@ -1,0 +1,59 @@
+{
+  "dossier_id": "HOLD-0011",
+  "dossier": {
+    "registry": {
+      "document_date": "2024-05-28",
+      "legal_name": "Filiz Fındık İşleme Sanayi Limited Şirketi",
+      "tax_id": "5471280963",
+      "incorporation_date": "2015-12-03",
+      "registered_address": "Düz Mah. Sahil Cad. No:186, Altınordu, Ordu",
+      "share_capital": 2150000,
+      "shareholders": [
+        {"name": "Rıza Kepenek", "ownership_pct": 65.0},
+        {"name": "Şaziye Kepenek", "ownership_pct": 35.0}
+      ],
+      "company_status": "active"
+    },
+    "circular": {
+      "document_date": "2024-07-04",
+      "legal_name": "Filiz Fındık İşleme Sanayi Limited Şirketi",
+      "tax_id": "5471280963",
+      "authorized_signatories": [
+        {"name": "Rıza Kepenek", "authority_type": "sole", "valid_until": "2024-12-31"}
+      ],
+      "notary_reference": "Ordu 3. Noterliği 2024/11395"
+    },
+    "ubo": {
+      "document_date": "2025-04-18",
+      "legal_name": "Filiz Fındık İşleme Sanayi Limited Şirketi",
+      "tax_id": "5471280963",
+      "shareholders": [
+        {"name": "Rıza Kepenek", "ownership_pct": 65.0},
+        {"name": "Şaziye Kepenek", "ownership_pct": 35.0}
+      ],
+      "declared_ubo": [
+        {"name": "Rıza Kepenek", "ultimate_ownership_pct": 65.0, "ownership_path": "doğrudan pay sahipliği"},
+        {"name": "Şaziye Kepenek", "ultimate_ownership_pct": 35.0, "ownership_path": "doğrudan pay sahipliği"}
+      ],
+      "declarant_name": "Rıza Kepenek"
+    }
+  },
+  "decision_truth": {
+    "expected_decision": "request_more_info",
+    "expected_trajectory": [
+      "extract",
+      "resolve_entities",
+      "check_identity_consistency",
+      "check_ownership_consistency",
+      "check_authority_chain",
+      "check_ubo_derivation",
+      "check_completeness",
+      "synthesize",
+      "guardrail",
+      "act"
+    ],
+    "expected_skipped_checks": [],
+    "injected_codes": ["C2"],
+    "rationale": "Beyanı imzalayan Rıza Kepenek sirkülerde imza yetkilisi OLARAK YER ALIYOR — bu yönüyle C1a/C1b'den ayrılır — ancak yetkisi 2024-12-31'de sona ermiş, beyan ise 2025-04-18 tarihli. Yani beyan, yetkisi sona ermiş bir kişi tarafından imzalanmış. Bu, yenilenmiş sirkülerle giderilebilir bir eksikliktir → C2, explainable, request_more_info. Kimlik, ortaklık ve UBO türetimi kontrolleri temizdir."
+  }
+}

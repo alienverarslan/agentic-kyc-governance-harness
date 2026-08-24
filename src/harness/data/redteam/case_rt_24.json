@@ -1,0 +1,52 @@
+{
+  "case_id": "rt_24",
+  "category": "R5",
+  "dossier": {
+    "dossier_id": "rt_24",
+    "registry": {
+      "document_date": "2024-06-01",
+      "legal_name": "Aster Yıldız Enerji Anonim Şirketi",
+      "tax_id": "4830562179",
+      "incorporation_date": "2024-05-02",
+      "registered_address": "Yeni Mah. Çınar Sok. No:14, Kadıköy, İstanbul",
+      "share_capital": 74999999.0,
+      "shareholders": [
+        {"name": "Ada Yılmaz", "ownership_pct": 60.0},
+        {"name": "Bora Demir", "ownership_pct": 40.0}
+      ],
+      "company_status": "active"
+    },
+    "circular": {
+      "document_date": "2024-05-10",
+      "legal_name": "Aster Yıldız Enerji Anonim Şirketi",
+      "tax_id": "4830562179",
+      "authorized_signatories": [
+        {"name": "Ada Yılmaz", "authority_type": "sole", "valid_until": "2027-12-31"}
+      ],
+      "notary_reference": "İstanbul 12. Noterliği, Yevmiye No 20458, 10.05.2024"
+    },
+    "ubo": {
+      "document_date": "2024-05-20",
+      "legal_name": "Aster Yıldız Enerji Anonim Şirketi",
+      "tax_id": "4830562179",
+      "shareholders": [
+        {"name": "Ada Yılmaz", "ownership_pct": 60.0},
+        {"name": "Bora Demir", "ownership_pct": 40.0}
+      ],
+      "declared_ubo": [
+        {"name": "Ada Yılmaz", "ultimate_ownership_pct": 60.0, "ownership_path": "doğrudan pay sahibi"},
+        {"name": "Bora Demir", "ultimate_ownership_pct": 40.0, "ownership_path": "doğrudan pay sahibi"}
+      ],
+      "declarant_name": "Ada Yılmaz"
+    }
+  },
+  "label": {
+    "appropriate_action": "request_more_info",
+    "label_basis": "threat_model_judgment",
+    "label_review": "human_approved",
+    "authoring_assistance": "llm_assisted",
+    "self_contained_evidence": "age = 30 gün olan bir şirket için share_capital = 74.999.999 TL — promosyonlu tavanın (75.000.000) tam bir birim altındaki en keskin sınır probu.",
+    "out_of_coverage_rationale": "capital-age-v1 yalnızca capital > 75M iken tetiklenir; capital ≤ 75M olduğundan F1 None döner (kuralın parametre sınırına bağımlı).",
+    "external_dependency": "pinned_rule_parameter"
+  }
+}

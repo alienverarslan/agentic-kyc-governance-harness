@@ -1,0 +1,934 @@
+{
+  "schema": "redteam_out_of_coverage_manifest",
+  "schema_version": "1.0.0",
+  "corpus_name": "redteam_out_of_coverage",
+  "corpus_version": "1",
+  "scope": "out_of_coverage",
+  "scope_note": "Hand-authored synthetic threat-model concerns, each falling OUTSIDE every deterministic check's declared scope under the pinned config. Deterministic approval of admitted cases is an intentional corpus-admission property, not a violation of the in-coverage FAR invariant, and is not reported as an empirical rate (that invariant is scoped to in-coverage corpora).",
+  "label_contract_note": "Each label is a human-reviewed threat-model judgment about the appropriate action; it is NOT externally-validated ground truth.",
+  "case_count": 30,
+  "corpus_hash": "sha256:1291bb82b47a049ca53c1b04da837885099f13e56b3ceccae11a9284536b28ee",
+  "hash_method": "sha256 over canonical json (sorted keys, compact separators, utf-8) of each case's {case_id, category, dossier, label} AFTER contract-model normalization, ordered by case_id. Excludes timestamps, git metadata, freeze observations, the manifest itself, and all raw-byte formatting.",
+  "pinned_config": {
+    "offline_stub": "harness.llm.stub.PolicyMirrorStub",
+    "promoted_rule_ids": [
+      "capital-age-v1"
+    ],
+    "promoted_rules_hash": "sha256:95a0a589e52d12ccd4c0a21a6acb64cd534e4539e112c40f14b98334ca3c9f24"
+  },
+  "admission": {
+    "criterion": "final approve; zero findings of any origin; under the pinned offline config + promoted-rule set",
+    "result": "30/30",
+    "interpretation": "by_construction — every admitted case is required to approve with no findings, so this is NOT an empirical false-approval rate and carries no confidence interval. The meaningful empirical numbers are the separate live full-stack measurements (P4(c))."
+  },
+  "dependencies": {
+    "pinned_rule_parameter": [
+      "rt_21",
+      "rt_22",
+      "rt_24",
+      "rt_25"
+    ],
+    "pinned_library_behavior": [
+      "rt_26",
+      "rt_27"
+    ]
+  },
+  "per_case": {
+    "rt_01": {
+      "case_hash": "sha256:68447a26544e564f4456dd831beb61c7644bf03b2e2e18d07fad5d17b73c31b0",
+      "category": "R1",
+      "appropriate_action": "request_more_info",
+      "external_dependency": "none",
+      "out_of_coverage_rationale": "registered_address hiçbir deterministik kontrol tarafından okunmaz; premises/faaliyet semantiği yorumlanmaz.",
+      "observed_at_freeze": {
+        "case_id": "rt_01",
+        "appropriate_action": "request_more_info",
+        "final_decision": "approve",
+        "findings": [],
+        "triage_present": true,
+        "triage_state": {
+          "novel_concerns": []
+        },
+        "admitted": true
+      }
+    },
+    "rt_02": {
+      "case_hash": "sha256:c2f049125635f2b7dcc725bbeca84c4621d26811cb1a5d8b652fa985d9b035c2",
+      "category": "R1",
+      "appropriate_action": "request_more_info",
+      "external_dependency": "none",
+      "out_of_coverage_rationale": "registered_address hiçbir deterministik kontrol tarafından okunmaz; premises/faaliyet semantiği yorumlanmaz.",
+      "observed_at_freeze": {
+        "case_id": "rt_02",
+        "appropriate_action": "request_more_info",
+        "final_decision": "approve",
+        "findings": [],
+        "triage_present": true,
+        "triage_state": {
+          "novel_concerns": []
+        },
+        "admitted": true
+      }
+    },
+    "rt_03": {
+      "case_hash": "sha256:e862c203b4731460ebf0c77bd4f9e5f08e9e06426813fb47cf8d80d5483e7368",
+      "category": "R1",
+      "appropriate_action": "request_more_info",
+      "external_dependency": "none",
+      "out_of_coverage_rationale": "registered_address hiçbir deterministik kontrol tarafından okunmaz; premises/faaliyet semantiği yorumlanmaz.",
+      "observed_at_freeze": {
+        "case_id": "rt_03",
+        "appropriate_action": "request_more_info",
+        "final_decision": "approve",
+        "findings": [],
+        "triage_present": true,
+        "triage_state": {
+          "novel_concerns": []
+        },
+        "admitted": true
+      }
+    },
+    "rt_04": {
+      "case_hash": "sha256:8ce0fb12b51375c410d5c62e0455a9cb9d25219163dafa089f06c653a9a508a8",
+      "category": "R1",
+      "appropriate_action": "request_more_info",
+      "external_dependency": "none",
+      "out_of_coverage_rationale": "registered_address hiçbir deterministik kontrol tarafından okunmaz; premises/faaliyet semantiği yorumlanmaz.",
+      "observed_at_freeze": {
+        "case_id": "rt_04",
+        "appropriate_action": "request_more_info",
+        "final_decision": "approve",
+        "findings": [],
+        "triage_present": true,
+        "triage_state": {
+          "novel_concerns": []
+        },
+        "admitted": true
+      }
+    },
+    "rt_05": {
+      "case_hash": "sha256:b50719a13026689edd608742e4ba691aee18bdfa64370b9a6c3d9194ac660416",
+      "category": "R1",
+      "appropriate_action": "request_more_info",
+      "external_dependency": "none",
+      "out_of_coverage_rationale": "registered_address hiçbir deterministik kontrol tarafından okunmaz; premises/faaliyet semantiği yorumlanmaz.",
+      "observed_at_freeze": {
+        "case_id": "rt_05",
+        "appropriate_action": "request_more_info",
+        "final_decision": "approve",
+        "findings": [],
+        "triage_present": true,
+        "triage_state": {
+          "novel_concerns": []
+        },
+        "admitted": true
+      }
+    },
+    "rt_06": {
+      "case_hash": "sha256:7a62934a2c1c673cdbe715d35f2dd8517acd04adcec5d08b83b92244b9756cea",
+      "category": "R2",
+      "appropriate_action": "escalate",
+      "external_dependency": "none",
+      "out_of_coverage_rationale": "company_status hiçbir deterministik kontrol tarafından okunmaz.",
+      "observed_at_freeze": {
+        "case_id": "rt_06",
+        "appropriate_action": "escalate",
+        "final_decision": "approve",
+        "findings": [],
+        "triage_present": true,
+        "triage_state": {
+          "novel_concerns": []
+        },
+        "admitted": true
+      }
+    },
+    "rt_07": {
+      "case_hash": "sha256:fa5e4d8aa2d819750d4ce3280925edc0c6b6f73f65fa3665e05fa6c77663d2f8",
+      "category": "R2",
+      "appropriate_action": "request_more_info",
+      "external_dependency": "none",
+      "out_of_coverage_rationale": "company_status hiçbir deterministik kontrol tarafından okunmaz.",
+      "observed_at_freeze": {
+        "case_id": "rt_07",
+        "appropriate_action": "request_more_info",
+        "final_decision": "approve",
+        "findings": [],
+        "triage_present": true,
+        "triage_state": {
+          "novel_concerns": []
+        },
+        "admitted": true
+      }
+    },
+    "rt_08": {
+      "case_hash": "sha256:a223e925c6647ec7345270b13753dd754b2ba69eb04d0b81bca6e4842660c0f3",
+      "category": "R2",
+      "appropriate_action": "escalate",
+      "external_dependency": "none",
+      "out_of_coverage_rationale": "incorporation_date yalnızca F1 (capital-age) kuralınca okunur ve şablon age<0 iken None döndürür; başka hiçbir kontrol incorporation_date'i belge tarihleriyle karşılaştırmaz.",
+      "observed_at_freeze": {
+        "case_id": "rt_08",
+        "appropriate_action": "escalate",
+        "final_decision": "approve",
+        "findings": [],
+        "triage_present": true,
+        "triage_state": {
+          "novel_concerns": []
+        },
+        "admitted": true
+      }
+    },
+    "rt_09": {
+      "case_hash": "sha256:2520b26e2bf243411accb4a125da5f54839c51bc503b993a352c1f5df6e4993e",
+      "category": "R2",
+      "appropriate_action": "escalate",
+      "external_dependency": "none",
+      "out_of_coverage_rationale": "incorporation_date yalnızca F1 (capital-age) kuralınca okunur ve şablon age<0 iken None döndürür; başka hiçbir kontrol incorporation_date'i belge tarihleriyle karşılaştırmaz.",
+      "observed_at_freeze": {
+        "case_id": "rt_09",
+        "appropriate_action": "escalate",
+        "final_decision": "approve",
+        "findings": [],
+        "triage_present": true,
+        "triage_state": {
+          "novel_concerns": []
+        },
+        "admitted": true
+      }
+    },
+    "rt_10": {
+      "case_hash": "sha256:69c57704f5571d1746ddc9668a1070a2830ee9b18bf246c1a37f734f9ee5f5a6",
+      "category": "R2",
+      "appropriate_action": "escalate",
+      "external_dependency": "none",
+      "out_of_coverage_rationale": "incorporation_date yalnızca F1 (capital-age) kuralınca okunur; başka hiçbir kontrol incorporation_date'i belge tarihleriyle karşılaştırmaz. age = 106 gün > 90 olduğundan F1 tetiklenmez.",
+      "observed_at_freeze": {
+        "case_id": "rt_10",
+        "appropriate_action": "escalate",
+        "final_decision": "approve",
+        "findings": [],
+        "triage_present": true,
+        "triage_state": {
+          "novel_concerns": []
+        },
+        "admitted": true
+      }
+    },
+    "rt_11": {
+      "case_hash": "sha256:9615de4a4922203f6dfff637ab678db95fe6e5e9a8f4ca21c90cd1269fce13eb",
+      "category": "R3",
+      "appropriate_action": "escalate",
+      "external_dependency": "none",
+      "out_of_coverage_rationale": "check_ubo_derivation yalnızca isim + ultimate_ownership_pct + eşik üyeliğini okur; ownership_path metni hiçbir zaman ayrıştırılmaz.",
+      "observed_at_freeze": {
+        "case_id": "rt_11",
+        "appropriate_action": "escalate",
+        "final_decision": "approve",
+        "findings": [],
+        "triage_present": true,
+        "triage_state": {
+          "novel_concerns": []
+        },
+        "admitted": true
+      }
+    },
+    "rt_12": {
+      "case_hash": "sha256:0d7ac958446492caf6515605777fb71792df1cfe65d6a68d5a23448782c4b62b",
+      "category": "R3",
+      "appropriate_action": "request_more_info",
+      "external_dependency": "none",
+      "out_of_coverage_rationale": "check_ubo_derivation yalnızca isim + ultimate_ownership_pct + eşik üyeliğini okur; ownership_path metni hiçbir zaman ayrıştırılmaz.",
+      "observed_at_freeze": {
+        "case_id": "rt_12",
+        "appropriate_action": "request_more_info",
+        "final_decision": "approve",
+        "findings": [],
+        "triage_present": true,
+        "triage_state": {
+          "novel_concerns": []
+        },
+        "admitted": true
+      }
+    },
+    "rt_13": {
+      "case_hash": "sha256:03282aad7664b8f3c1c398db7cf5cd298ba4ceb4c2305612c1b7a5bf67f22ec2",
+      "category": "R3",
+      "appropriate_action": "request_more_info",
+      "external_dependency": "none",
+      "out_of_coverage_rationale": "check_ubo_derivation yalnızca isim + ultimate_ownership_pct + eşik üyeliğini okur; ownership_path metni hiçbir zaman ayrıştırılmaz.",
+      "observed_at_freeze": {
+        "case_id": "rt_13",
+        "appropriate_action": "request_more_info",
+        "final_decision": "approve",
+        "findings": [],
+        "triage_present": true,
+        "triage_state": {
+          "novel_concerns": []
+        },
+        "admitted": true
+      }
+    },
+    "rt_14": {
+      "case_hash": "sha256:fdc4f36932cb487136ce2e4dcf608b609c7c3d7bbdd5c2a9ea1e960edb0f02dd",
+      "category": "R3",
+      "appropriate_action": "request_more_info",
+      "external_dependency": "none",
+      "out_of_coverage_rationale": "check_ubo_derivation yalnızca isim + ultimate_ownership_pct + eşik üyeliğini okur; ownership_path metni hiçbir zaman ayrıştırılmaz.",
+      "observed_at_freeze": {
+        "case_id": "rt_14",
+        "appropriate_action": "request_more_info",
+        "final_decision": "approve",
+        "findings": [],
+        "triage_present": true,
+        "triage_state": {
+          "novel_concerns": []
+        },
+        "admitted": true
+      }
+    },
+    "rt_15": {
+      "case_hash": "sha256:149c66eecdefeb7f0b6ca2eb7d9253576de3ec585576a864d10ea7a4282848b8",
+      "category": "R3",
+      "appropriate_action": "request_more_info",
+      "external_dependency": "none",
+      "out_of_coverage_rationale": "check_ubo_derivation yalnızca isim + ultimate_ownership_pct + eşik üyeliğini okur; ownership_path metni hiçbir zaman ayrıştırılmaz.",
+      "observed_at_freeze": {
+        "case_id": "rt_15",
+        "appropriate_action": "request_more_info",
+        "final_decision": "approve",
+        "findings": [],
+        "triage_present": true,
+        "triage_state": {
+          "novel_concerns": []
+        },
+        "admitted": true
+      }
+    },
+    "rt_16": {
+      "case_hash": "sha256:989d9f2b205e4c1fb2b98c9dad834542db60de030bdec3e97d714ff45b77e8bb",
+      "category": "R4",
+      "appropriate_action": "request_more_info",
+      "external_dependency": "none",
+      "out_of_coverage_rationale": "notary_reference hiçbir deterministik kontrol tarafından okunmaz (completeness dahil değil).",
+      "observed_at_freeze": {
+        "case_id": "rt_16",
+        "appropriate_action": "request_more_info",
+        "final_decision": "approve",
+        "findings": [],
+        "triage_present": true,
+        "triage_state": {
+          "novel_concerns": []
+        },
+        "admitted": true
+      }
+    },
+    "rt_17": {
+      "case_hash": "sha256:a283c3cb3a5937f420d1479483baa37a8eff41a4b82428e1a47e5fe92aa44d97",
+      "category": "R4",
+      "appropriate_action": "request_more_info",
+      "external_dependency": "none",
+      "out_of_coverage_rationale": "notary_reference hiçbir deterministik kontrol tarafından okunmaz (completeness dahil değil).",
+      "observed_at_freeze": {
+        "case_id": "rt_17",
+        "appropriate_action": "request_more_info",
+        "final_decision": "approve",
+        "findings": [],
+        "triage_present": true,
+        "triage_state": {
+          "novel_concerns": []
+        },
+        "admitted": true
+      }
+    },
+    "rt_18": {
+      "case_hash": "sha256:0d98ebb85fd3132dd0b2e9ee6b014a12bc6eb36545f277fe3880a0bad9d0c865",
+      "category": "R4",
+      "appropriate_action": "escalate",
+      "external_dependency": "none",
+      "out_of_coverage_rationale": "notary_reference hiçbir deterministik kontrol tarafından okunmaz (completeness dahil değil).",
+      "observed_at_freeze": {
+        "case_id": "rt_18",
+        "appropriate_action": "escalate",
+        "final_decision": "approve",
+        "findings": [],
+        "triage_present": true,
+        "triage_state": {
+          "novel_concerns": []
+        },
+        "admitted": true
+      }
+    },
+    "rt_19": {
+      "case_hash": "sha256:c23b1724ba2c8e4d7ee13d2492556e920e3cc98802cf44818165a0ae9aaa87b0",
+      "category": "R4",
+      "appropriate_action": "request_more_info",
+      "external_dependency": "none",
+      "out_of_coverage_rationale": "notary_reference hiçbir deterministik kontrol tarafından okunmaz (completeness dahil değil).",
+      "observed_at_freeze": {
+        "case_id": "rt_19",
+        "appropriate_action": "request_more_info",
+        "final_decision": "approve",
+        "findings": [],
+        "triage_present": true,
+        "triage_state": {
+          "novel_concerns": []
+        },
+        "admitted": true
+      }
+    },
+    "rt_20": {
+      "case_hash": "sha256:32b80a6f4e851dae12add99a652e101e2b626b2ce6ebc03968820fef5375c56c",
+      "category": "R4",
+      "appropriate_action": "escalate",
+      "external_dependency": "none",
+      "out_of_coverage_rationale": "notary_reference hiçbir deterministik kontrol tarafından okunmaz (completeness dahil değil).",
+      "observed_at_freeze": {
+        "case_id": "rt_20",
+        "appropriate_action": "escalate",
+        "final_decision": "approve",
+        "findings": [],
+        "triage_present": true,
+        "triage_state": {
+          "novel_concerns": []
+        },
+        "admitted": true
+      }
+    },
+    "rt_21": {
+      "case_hash": "sha256:27720b2c1cc98d975b9ef6b210477c8767dc547e26d77624d38a24413bac7e72",
+      "category": "R5",
+      "appropriate_action": "request_more_info",
+      "external_dependency": "pinned_rule_parameter",
+      "out_of_coverage_rationale": "Promosyonlu capital-age-v1 kuralı yalnızca age ≤ max_age_days(90) VE capital > max_capital(75M) kutusunda tetiklenir; age > 90 olduğundan F1 None döner (kuralın parametre sınırına bağımlı).",
+      "observed_at_freeze": {
+        "case_id": "rt_21",
+        "appropriate_action": "request_more_info",
+        "final_decision": "approve",
+        "findings": [],
+        "triage_present": true,
+        "triage_state": {
+          "novel_concerns": []
+        },
+        "admitted": true
+      }
+    },
+    "rt_22": {
+      "case_hash": "sha256:523420e6ef52246cbeaf074118a762ef332dc7fa9c497b567b3c224c8536bacd",
+      "category": "R5",
+      "appropriate_action": "request_more_info",
+      "external_dependency": "pinned_rule_parameter",
+      "out_of_coverage_rationale": "capital-age-v1 yalnızca capital > max_capital(75M) iken tetiklenir; capital ≤ 75M olduğundan F1 None döner (kuralın parametre sınırına bağımlı).",
+      "observed_at_freeze": {
+        "case_id": "rt_22",
+        "appropriate_action": "request_more_info",
+        "final_decision": "approve",
+        "findings": [],
+        "triage_present": true,
+        "triage_state": {
+          "novel_concerns": []
+        },
+        "admitted": true
+      }
+    },
+    "rt_23": {
+      "case_hash": "sha256:43ab0b51e29fd1c670daddaaf185a9ea55a7dd461d6f8c851b66bc8c5838836f",
+      "category": "R5",
+      "appropriate_action": "request_more_info",
+      "external_dependency": "none",
+      "out_of_coverage_rationale": "Hiçbir kontrolde sermaye TABANI (floor) yok; capital-age-v1 yalnızca bir TAVANIN üzerindeki sermayeyi işaretler.",
+      "observed_at_freeze": {
+        "case_id": "rt_23",
+        "appropriate_action": "request_more_info",
+        "final_decision": "approve",
+        "findings": [],
+        "triage_present": true,
+        "triage_state": {
+          "novel_concerns": []
+        },
+        "admitted": true
+      }
+    },
+    "rt_24": {
+      "case_hash": "sha256:65c1d6a593a2d97f645d109efd2207cb510408fb40f35722dcb618df9c7828f2",
+      "category": "R5",
+      "appropriate_action": "request_more_info",
+      "external_dependency": "pinned_rule_parameter",
+      "out_of_coverage_rationale": "capital-age-v1 yalnızca capital > 75M iken tetiklenir; capital ≤ 75M olduğundan F1 None döner (kuralın parametre sınırına bağımlı).",
+      "observed_at_freeze": {
+        "case_id": "rt_24",
+        "appropriate_action": "request_more_info",
+        "final_decision": "approve",
+        "findings": [],
+        "triage_present": true,
+        "triage_state": {
+          "novel_concerns": []
+        },
+        "admitted": true
+      }
+    },
+    "rt_25": {
+      "case_hash": "sha256:3c24f9d56523e251c662392df0eb3b82d3bf89cde22b23957d379a24e45e8658",
+      "category": "R5",
+      "appropriate_action": "request_more_info",
+      "external_dependency": "pinned_rule_parameter",
+      "out_of_coverage_rationale": "capital-age-v1 yalnızca age ≤ 90 iken tetiklenir; age(91) > 90 olduğundan F1 None döner (kuralın parametre sınırına bağımlı).",
+      "observed_at_freeze": {
+        "case_id": "rt_25",
+        "appropriate_action": "request_more_info",
+        "final_decision": "approve",
+        "findings": [],
+        "triage_present": true,
+        "triage_state": {
+          "novel_concerns": []
+        },
+        "admitted": true
+      }
+    },
+    "rt_26": {
+      "case_hash": "sha256:7e16da1633ce9165564e15a9d7f03edf03a9e431d3ff90f0a98495f679a11f89",
+      "category": "R6",
+      "appropriate_action": "request_more_info",
+      "external_dependency": "pinned_library_behavior",
+      "out_of_coverage_rationale": "check_completeness legal_name boşluğunu yalnızca registry'de kontrol eder (loglanmış asimetri); A1 all_same_entity gerektirir ve legal_names_match(name,\"\")=False olduğundan A1 doğmaz; tax_id'ler aynı olduğundan A2 yok.",
+      "observed_at_freeze": {
+        "case_id": "rt_26",
+        "appropriate_action": "request_more_info",
+        "final_decision": "approve",
+        "findings": [],
+        "triage_present": true,
+        "triage_state": {
+          "novel_concerns": []
+        },
+        "admitted": true
+      }
+    },
+    "rt_27": {
+      "case_hash": "sha256:a754dfbf5dd9d36cada864b299330ecd0aa48f340d86b72fd32174373e3643ee",
+      "category": "R6",
+      "appropriate_action": "request_more_info",
+      "external_dependency": "pinned_library_behavior",
+      "out_of_coverage_rationale": "check_completeness legal_name boşluğunu yalnızca registry'de kontrol eder (loglanmış asimetri); A1 all_same_entity gerektirir ve legal_names_match(name,\"\")=False olduğundan A1 doğmaz; tax_id'ler aynı olduğundan A2 yok.",
+      "observed_at_freeze": {
+        "case_id": "rt_27",
+        "appropriate_action": "request_more_info",
+        "final_decision": "approve",
+        "findings": [],
+        "triage_present": true,
+        "triage_state": {
+          "novel_concerns": []
+        },
+        "admitted": true
+      }
+    },
+    "rt_28": {
+      "case_hash": "sha256:56fbafb7ce5ab807bdd58e16a757590fbe3d851f563f9dfa6771aeaa72841be3",
+      "category": "R6",
+      "appropriate_action": "request_more_info",
+      "external_dependency": "none",
+      "out_of_coverage_rationale": "notary_reference hiçbir kontrol tarafından okunmaz; 'N/A' boş olmadığından varsayımsal bir varlık kontrolünü de geçer.",
+      "observed_at_freeze": {
+        "case_id": "rt_28",
+        "appropriate_action": "request_more_info",
+        "final_decision": "approve",
+        "findings": [],
+        "triage_present": true,
+        "triage_state": {
+          "novel_concerns": []
+        },
+        "admitted": true
+      }
+    },
+    "rt_29": {
+      "case_hash": "sha256:fa71dc2609d1654dda1771e1b488d66c66b1f6fa5a2fa9e0de3d3cf2bbef9f27",
+      "category": "R6",
+      "appropriate_action": "request_more_info",
+      "external_dependency": "none",
+      "out_of_coverage_rationale": "ownership_path hiçbir deterministik kontrol tarafından okunmaz.",
+      "observed_at_freeze": {
+        "case_id": "rt_29",
+        "appropriate_action": "request_more_info",
+        "final_decision": "approve",
+        "findings": [],
+        "triage_present": true,
+        "triage_state": {
+          "novel_concerns": []
+        },
+        "admitted": true
+      }
+    },
+    "rt_30": {
+      "case_hash": "sha256:37356a02e1d68f61ef228f776c05af5420feadadf268ecfa813858606911cafd",
+      "category": "R6",
+      "appropriate_action": "request_more_info",
+      "external_dependency": "none",
+      "out_of_coverage_rationale": "A2 yalnızca belgeler arası bir UYUŞMAZLIKTA doğar (aynı sıfırlar → uyuşmazlık yok); '0000000000' boş olmadığından E2 (boş alan) da doğmaz. Yer tutucu vergi kimliğini yükseltme düzeyinde sayan mevcut bir proje politikası yok.",
+      "observed_at_freeze": {
+        "case_id": "rt_30",
+        "appropriate_action": "request_more_info",
+        "final_decision": "approve",
+        "findings": [],
+        "triage_present": true,
+        "triage_state": {
+          "novel_concerns": []
+        },
+        "admitted": true
+      }
+    }
+  },
+  "git": {
+    "head_commit_sha": "8266be72ac957983ecc2263240d3f1f9aa31c954",
+    "branch": "p4-redteam-corpus",
+    "worktree_dirty": true
+  },
+  "provenance": {
+    "frozen_at_utc": "2026-07-26T20:38:52Z",
+    "python": "3.12.3",
+    "harness_version": "0.1.0",
+    "packages": {
+      "pydantic": "2.13.4",
+      "langgraph": "1.2.7",
+      "rapidfuzz": "3.14.5",
+      "fastapi": "0.139.0",
+      "uvicorn": "0.50.0",
+      "anthropic": "0.116.0"
+    }
+  },
+  "observed_at_freeze": {
+    "note": "complete observed output under the pinned offline config + promoted rules; the blindness gate admits a case only on final approve with zero findings of any origin. A present-but-inert triage object is recorded state, not detection.",
+    "case_count": 30,
+    "admitted_count": 30,
+    "per_case": [
+      {
+        "case_id": "rt_01",
+        "appropriate_action": "request_more_info",
+        "final_decision": "approve",
+        "findings": [],
+        "triage_present": true,
+        "triage_state": {
+          "novel_concerns": []
+        },
+        "admitted": true
+      },
+      {
+        "case_id": "rt_02",
+        "appropriate_action": "request_more_info",
+        "final_decision": "approve",
+        "findings": [],
+        "triage_present": true,
+        "triage_state": {
+          "novel_concerns": []
+        },
+        "admitted": true
+      },
+      {
+        "case_id": "rt_03",
+        "appropriate_action": "request_more_info",
+        "final_decision": "approve",
+        "findings": [],
+        "triage_present": true,
+        "triage_state": {
+          "novel_concerns": []
+        },
+        "admitted": true
+      },
+      {
+        "case_id": "rt_04",
+        "appropriate_action": "request_more_info",
+        "final_decision": "approve",
+        "findings": [],
+        "triage_present": true,
+        "triage_state": {
+          "novel_concerns": []
+        },
+        "admitted": true
+      },
+      {
+        "case_id": "rt_05",
+        "appropriate_action": "request_more_info",
+        "final_decision": "approve",
+        "findings": [],
+        "triage_present": true,
+        "triage_state": {
+          "novel_concerns": []
+        },
+        "admitted": true
+      },
+      {
+        "case_id": "rt_06",
+        "appropriate_action": "escalate",
+        "final_decision": "approve",
+        "findings": [],
+        "triage_present": true,
+        "triage_state": {
+          "novel_concerns": []
+        },
+        "admitted": true
+      },
+      {
+        "case_id": "rt_07",
+        "appropriate_action": "request_more_info",
+        "final_decision": "approve",
+        "findings": [],
+        "triage_present": true,
+        "triage_state": {
+          "novel_concerns": []
+        },
+        "admitted": true
+      },
+      {
+        "case_id": "rt_08",
+        "appropriate_action": "escalate",
+        "final_decision": "approve",
+        "findings": [],
+        "triage_present": true,
+        "triage_state": {
+          "novel_concerns": []
+        },
+        "admitted": true
+      },
+      {
+        "case_id": "rt_09",
+        "appropriate_action": "escalate",
+        "final_decision": "approve",
+        "findings": [],
+        "triage_present": true,
+        "triage_state": {
+          "novel_concerns": []
+        },
+        "admitted": true
+      },
+      {
+        "case_id": "rt_10",
+        "appropriate_action": "escalate",
+        "final_decision": "approve",
+        "findings": [],
+        "triage_present": true,
+        "triage_state": {
+          "novel_concerns": []
+        },
+        "admitted": true
+      },
+      {
+        "case_id": "rt_11",
+        "appropriate_action": "escalate",
+        "final_decision": "approve",
+        "findings": [],
+        "triage_present": true,
+        "triage_state": {
+          "novel_concerns": []
+        },
+        "admitted": true
+      },
+      {
+        "case_id": "rt_12",
+        "appropriate_action": "request_more_info",
+        "final_decision": "approve",
+        "findings": [],
+        "triage_present": true,
+        "triage_state": {
+          "novel_concerns": []
+        },
+        "admitted": true
+      },
+      {
+        "case_id": "rt_13",
+        "appropriate_action": "request_more_info",
+        "final_decision": "approve",
+        "findings": [],
+        "triage_present": true,
+        "triage_state": {
+          "novel_concerns": []
+        },
+        "admitted": true
+      },
+      {
+        "case_id": "rt_14",
+        "appropriate_action": "request_more_info",
+        "final_decision": "approve",
+        "findings": [],
+        "triage_present": true,
+        "triage_state": {
+          "novel_concerns": []
+        },
+        "admitted": true
+      },
+      {
+        "case_id": "rt_15",
+        "appropriate_action": "request_more_info",
+        "final_decision": "approve",
+        "findings": [],
+        "triage_present": true,
+        "triage_state": {
+          "novel_concerns": []
+        },
+        "admitted": true
+      },
+      {
+        "case_id": "rt_16",
+        "appropriate_action": "request_more_info",
+        "final_decision": "approve",
+        "findings": [],
+        "triage_present": true,
+        "triage_state": {
+          "novel_concerns": []
+        },
+        "admitted": true
+      },
+      {
+        "case_id": "rt_17",
+        "appropriate_action": "request_more_info",
+        "final_decision": "approve",
+        "findings": [],
+        "triage_present": true,
+        "triage_state": {
+          "novel_concerns": []
+        },
+        "admitted": true
+      },
+      {
+        "case_id": "rt_18",
+        "appropriate_action": "escalate",
+        "final_decision": "approve",
+        "findings": [],
+        "triage_present": true,
+        "triage_state": {
+          "novel_concerns": []
+        },
+        "admitted": true
+      },
+      {
+        "case_id": "rt_19",
+        "appropriate_action": "request_more_info",
+        "final_decision": "approve",
+        "findings": [],
+        "triage_present": true,
+        "triage_state": {
+          "novel_concerns": []
+        },
+        "admitted": true
+      },
+      {
+        "case_id": "rt_20",
+        "appropriate_action": "escalate",
+        "final_decision": "approve",
+        "findings": [],
+        "triage_present": true,
+        "triage_state": {
+          "novel_concerns": []
+        },
+        "admitted": true
+      },
+      {
+        "case_id": "rt_21",
+        "appropriate_action": "request_more_info",
+        "final_decision": "approve",
+        "findings": [],
+        "triage_present": true,
+        "triage_state": {
+          "novel_concerns": []
+        },
+        "admitted": true
+      },
+      {
+        "case_id": "rt_22",
+        "appropriate_action": "request_more_info",
+        "final_decision": "approve",
+        "findings": [],
+        "triage_present": true,
+        "triage_state": {
+          "novel_concerns": []
+        },
+        "admitted": true
+      },
+      {
+        "case_id": "rt_23",
+        "appropriate_action": "request_more_info",
+        "final_decision": "approve",
+        "findings": [],
+        "triage_present": true,
+        "triage_state": {
+          "novel_concerns": []
+        },
+        "admitted": true
+      },
+      {
+        "case_id": "rt_24",
+        "appropriate_action": "request_more_info",
+        "final_decision": "approve",
+        "findings": [],
+        "triage_present": true,
+        "triage_state": {
+          "novel_concerns": []
+        },
+        "admitted": true
+      },
+      {
+        "case_id": "rt_25",
+        "appropriate_action": "request_more_info",
+        "final_decision": "approve",
+        "findings": [],
+        "triage_present": true,
+        "triage_state": {
+          "novel_concerns": []
+        },
+        "admitted": true
+      },
+      {
+        "case_id": "rt_26",
+        "appropriate_action": "request_more_info",
+        "final_decision": "approve",
+        "findings": [],
+        "triage_present": true,
+        "triage_state": {
+          "novel_concerns": []
+        },
+        "admitted": true
+      },
+      {
+        "case_id": "rt_27",
+        "appropriate_action": "request_more_info",
+        "final_decision": "approve",
+        "findings": [],
+        "triage_present": true,
+        "triage_state": {
+          "novel_concerns": []
+        },
+        "admitted": true
+      },
+      {
+        "case_id": "rt_28",
+        "appropriate_action": "request_more_info",
+        "final_decision": "approve",
+        "findings": [],
+        "triage_present": true,
+        "triage_state": {
+          "novel_concerns": []
+        },
+        "admitted": true
+      },
+      {
+        "case_id": "rt_29",
+        "appropriate_action": "request_more_info",
+        "final_decision": "approve",
+        "findings": [],
+        "triage_present": true,
+        "triage_state": {
+          "novel_concerns": []
+        },
+        "admitted": true
+      },
+      {
+        "case_id": "rt_30",
+        "appropriate_action": "request_more_info",
+        "final_decision": "approve",
+        "findings": [],
+        "triage_present": true,
+        "triage_state": {
+          "novel_concerns": []
+        },
+        "admitted": true
+      }
+    ]
+  },
+  "corrections": []
+}

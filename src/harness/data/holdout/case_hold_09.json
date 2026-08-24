@@ -1,0 +1,59 @@
+{
+  "dossier_id": "HOLD-0009",
+  "dossier": {
+    "registry": {
+      "document_date": "2024-06-11",
+      "legal_name": "Semerkand Halıcılık Limited Şirketi",
+      "tax_id": "1594736820",
+      "incorporation_date": "2009-04-17",
+      "registered_address": "Şerefiye Mah. Cumhuriyet Cad. No:74, İpekyolu, Van",
+      "share_capital": 980000,
+      "shareholders": [
+        {"name": "Kadir Bozkurt", "ownership_pct": 50.0},
+        {"name": "Leyla Bozkurt", "ownership_pct": 50.0}
+      ],
+      "company_status": "active"
+    },
+    "circular": {
+      "document_date": "2023-04-10",
+      "legal_name": "Semerkand Halıcılık Limited Şirketi",
+      "tax_id": "1594736820",
+      "authorized_signatories": [
+        {"name": "Kadir Bozkurt", "authority_type": "sole", "valid_until": "2026-04-10"}
+      ],
+      "notary_reference": "Van 2. Noterliği 2023/05128"
+    },
+    "ubo": {
+      "document_date": "2025-01-15",
+      "legal_name": "Semerkand Halıcılık Limited Şirketi",
+      "tax_id": "1594736820",
+      "shareholders": [
+        {"name": "Kadir Bozkurt", "ownership_pct": 50.0},
+        {"name": "Leyla Bozkurt", "ownership_pct": 50.0}
+      ],
+      "declared_ubo": [
+        {"name": "Kadir Bozkurt", "ultimate_ownership_pct": 50.0, "ownership_path": "doğrudan pay sahipliği"},
+        {"name": "Leyla Bozkurt", "ultimate_ownership_pct": 50.0, "ownership_path": "doğrudan pay sahipliği"}
+      ],
+      "declarant_name": "Yusuf Çakıroğlu"
+    }
+  },
+  "decision_truth": {
+    "expected_decision": "request_more_info",
+    "expected_trajectory": [
+      "extract",
+      "resolve_entities",
+      "check_identity_consistency",
+      "check_ownership_consistency",
+      "check_authority_chain",
+      "check_ubo_derivation",
+      "check_completeness",
+      "synthesize",
+      "guardrail",
+      "act"
+    ],
+    "expected_skipped_checks": [],
+    "injected_codes": ["C1a"],
+    "rationale": "Beyanı imzalayan Yusuf Çakıroğlu sirkülerdeki imza yetkilileri arasında yok; ancak sirküler (2023-04-10) beyandan (2025-01-15) 646 gün daha eski, yani AUTHORITY_STALENESS_DAYS=365 eşiğinin belirgin biçimde üzerinde. Arada yeni bir yetkili atanmış olması makul bir açıklamadır → C1a, explainable, request_more_info; güncel sirküler istenmeli. Beyanı imzalayanın ortak olmaması başlı başına bulgu değildir (profesyonel yönetici); eşik üstü her iki ortak beyan edildiği için D1a yoktur."
+  }
+}

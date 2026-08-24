@@ -1,0 +1,12 @@
+[
+  {
+    "rule_id": "capital-age-v1",
+    "template_id": "capital_age_ceiling",
+    "params": {
+      "max_age_days": 90.0,
+      "max_capital": 75000000.0
+    },
+    "rationale": "All three missed cases share the same pattern: a company that is only weeks old (well under 90 days) yet declares share capital of 75 M or more. Setting max_age_days=90 captures \"weeks-old\" entities with a comfortable buffer while staying well below the 1825-day ceiling, avoiding misfires on legitimately young but well-capitalised subsidiaries of large groups (which would typically be incorporated with a deliberate, documented capital injection and would clear other checks). Setting max_capital=75,000,000 matches the stated evidence floor exactly — a normal SME incorporated at any age would almost never legitimately open with 75 M+ in declared share capital, so the false-positive risk is low.",
+    "proposed_by": "llm"
+  }
+]

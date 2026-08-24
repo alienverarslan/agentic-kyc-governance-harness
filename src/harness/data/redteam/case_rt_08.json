@@ -1,0 +1,52 @@
+{
+  "case_id": "rt_08",
+  "category": "R2",
+  "dossier": {
+    "dossier_id": "rt_08",
+    "registry": {
+      "document_date": "2024-06-01",
+      "legal_name": "Aster Yıldız Enerji Anonim Şirketi",
+      "tax_id": "4830562179",
+      "incorporation_date": "2024-07-01",
+      "registered_address": "Yeni Mah. Çınar Sok. No:14, Kadıköy, İstanbul",
+      "share_capital": 5000000.0,
+      "shareholders": [
+        {"name": "Ada Yılmaz", "ownership_pct": 60.0},
+        {"name": "Bora Demir", "ownership_pct": 40.0}
+      ],
+      "company_status": "active"
+    },
+    "circular": {
+      "document_date": "2024-01-15",
+      "legal_name": "Aster Yıldız Enerji Anonim Şirketi",
+      "tax_id": "4830562179",
+      "authorized_signatories": [
+        {"name": "Ada Yılmaz", "authority_type": "sole", "valid_until": "2027-12-31"}
+      ],
+      "notary_reference": "İstanbul 12. Noterliği, Yevmiye No 20458, 15.01.2024"
+    },
+    "ubo": {
+      "document_date": "2024-02-10",
+      "legal_name": "Aster Yıldız Enerji Anonim Şirketi",
+      "tax_id": "4830562179",
+      "shareholders": [
+        {"name": "Ada Yılmaz", "ownership_pct": 60.0},
+        {"name": "Bora Demir", "ownership_pct": 40.0}
+      ],
+      "declared_ubo": [
+        {"name": "Ada Yılmaz", "ultimate_ownership_pct": 60.0, "ownership_path": "doğrudan pay sahibi"},
+        {"name": "Bora Demir", "ultimate_ownership_pct": 40.0, "ownership_path": "doğrudan pay sahibi"}
+      ],
+      "declarant_name": "Ada Yılmaz"
+    }
+  },
+  "label": {
+    "appropriate_action": "escalate",
+    "label_basis": "threat_model_judgment",
+    "label_review": "human_approved",
+    "authoring_assistance": "llm_assisted",
+    "self_contained_evidence": "registry.incorporation_date (2024-07-01) registry.document_date'ten (2024-06-01) sonra — belge, şirketin kuruluşundan önce tarihli; zamansal olarak imkânsız.",
+    "out_of_coverage_rationale": "incorporation_date yalnızca F1 (capital-age) kuralınca okunur ve şablon age<0 iken None döndürür; başka hiçbir kontrol incorporation_date'i belge tarihleriyle karşılaştırmaz.",
+    "external_dependency": "none"
+  }
+}

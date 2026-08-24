@@ -1,0 +1,79 @@
+# Reference dependency set for CPython 3.12 on Linux CI.
+#
+# SCOPE. This is NOT a universal cross-platform lock. It is the exact set that CI installs,
+# resolved for CPython 3.12 on Linux with no environment markers evaluated for any other
+# platform or interpreter. On another OS or Python version, some pins may not have wheels
+# and some transitive dependencies would differ; use it there only as a starting point.
+#
+# It also pins only the RUNTIME and TEST surface. The build backend is pinned separately in
+# requirements-build.txt, because it is installed before this file and used with
+# --no-isolation.
+#
+# Resolved from the declared dependencies in pyproject.toml, in an empty virtual
+# environment created for the purpose, on 2026-08-23 with Python 3.12.3. Not a copy of any
+# developer machine: the environment started empty and pip resolved the constraints itself.
+#
+# Regenerate:
+#     python3 -m venv /tmp/lockenv
+#     /tmp/lockenv/bin/python -m pip install --upgrade pip
+#     /tmp/lockenv/bin/pip install -e '.[dev]'
+#     /tmp/lockenv/bin/pip freeze --exclude-editable | sort > requirements-lock.txt
+#     # then restore this header
+#
+# Install from it, exactly as CI does:
+#     python -m pip install "pip==26.2.1"
+#     pip install -r requirements-build.txt
+#     pip install -r requirements-lock.txt
+#
+# The project itself is intentionally absent (--exclude-editable): this file pins the
+# dependency surface, not the package under test. CI installs the package twice, in two
+# different ways — as a built wheel in a throwaway environment for the packaging smoke
+# test, and as `pip install -e . --no-deps` for the source-tree suite.
+PyYAML==6.0.3
+Pygments==2.21.0
+RapidFuzz==3.14.5
+annotated-doc==0.0.5
+annotated-types==0.8.0
+anthropic==0.125.0
+anyio==4.14.2
+certifi==2026.7.22
+charset-normalizer==3.5.1
+click==8.4.2
+distro==1.9.0
+docstring_parser==0.18.0
+fastapi==0.141.1
+h11==0.16.0
+httpcore==1.0.9
+httpx==0.28.1
+idna==3.19
+iniconfig==2.3.0
+jiter==0.16.0
+jsonpatch==1.33
+jsonpointer==3.1.1
+langchain-core==1.6.0
+langchain-protocol==0.0.18
+langgraph-checkpoint==4.2.0
+langgraph-prebuilt==1.1.0
+langgraph-sdk==0.4.3
+langgraph==1.2.11
+langsmith==0.11.1
+orjson==3.12.0
+ormsgpack==1.12.2
+packaging==26.3
+pluggy==1.6.0
+pydantic==2.13.4
+pydantic_core==2.46.4
+pytest==8.4.2
+requests-toolbelt==1.0.0
+requests==2.34.2
+sniffio==1.3.1
+starlette==1.6.0
+tenacity==9.1.4
+typing-inspection==0.4.4
+typing_extensions==4.16.0
+urllib3==2.7.0
+uuid_utils==0.17.0
+uvicorn==0.52.4
+websockets==16.1.1
+xxhash==4.0.1
+zstandard==0.25.0

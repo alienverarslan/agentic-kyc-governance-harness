@@ -1,0 +1,63 @@
+[build-system]
+# >=77 for PEP 639 SPDX license metadata (`license` as an expression, `license-files`).
+requires = ["setuptools>=77", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "doc-consistency-governance-harness"
+version = "0.1.0"
+description = "Governance and evaluation harness for action-taking LLM agents, demonstrated on cross-document consistency screening of corporate dossiers."
+readme = "README.md"
+requires-python = ">=3.11"
+license = "MIT"
+license-files = ["LICENSE"]
+authors = [{ name = "doc-consistency-governance-harness" }]
+# Upper bounds cap unreviewed MAJOR drift; exact versions for CI live in
+# requirements-lock.txt. langgraph in particular was previously open-ended, so a major
+# release could have changed graph semantics under an unchanged test suite.
+dependencies = [
+    "pydantic>=2.6,<3",
+    "langgraph>=0.2,<2",
+    "rapidfuzz>=3.0,<4",
+    "fastapi>=0.110,<1",
+    "uvicorn>=0.27,<1",
+    "anthropic>=0.39,<1",
+]
+
+[project.optional-dependencies]
+dev = ["pytest>=8,<9", "httpx>=0.27,<1"]
+
+[project.scripts]
+harness-eval = "harness.eval.run:main"
+harness-p5-report = "harness.eval.scientific_report:main"
+harness-p2-holdout-report = "harness.eval.holdout_report:main"
+harness-p4-redteam-record = "harness.eval.redteam_record:main"
+harness-p4c-live = "harness.eval.redteam_live:main"
+harness-p4c-public-summary = "harness.eval.redteam_public_summary:main"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.setuptools.package-data]
+# `seed/`, `holdout/` and `redteam/` are DATA DIRECTORIES, not packages: none of them has
+# an __init__.py, so "harness.data.seed" and "harness.data.holdout" named packages that do
+# not exist and silently shipped nothing. Every corpus is therefore declared here, on the
+# one real package, with subdirectory globs relative to its directory — which is also how
+# the loaders resolve them (Path(__file__).parent / "<subdir>").
+"harness.data" = [
+    "promoted_rules.json",
+    "seed/*.json",
+    "seed/*.md",
+    "holdout/*.json",
+    "redteam/*.json",
+]
+
+[tool.pytest.ini_options]
+pythonpath = ["src", "."]
+testpaths = ["tests"]
+addopts = "-q"
+filterwarnings = [
+    # Starlette's TestClient warns that httpx will be replaced by httpx2. It is a
+    # third-party deprecation we don't control; silence just this one message.
+    "ignore:Using `httpx` with `starlette.testclient` is deprecated:UserWarning",
+]

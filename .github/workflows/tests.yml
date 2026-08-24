@@ -1,0 +1,51 @@
+name: tests
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+permissions:
+  contents: read
+
+jobs:
+  pytest:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v6
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+          cache: pip
+          cache-dependency-path: |
+            requirements-build.txt
+            requirements-lock.txt
+
+      # Every version below is pinned, including pip itself and the build backend. Nothing
+      # in this job resolves a version from the network at build time: the project is built
+      # with --no-build-isolation against the backend pinned in requirements-build.txt.
+      - name: Install the pinned installer and build backend
+        run: |
+          python -m pip install --disable-pip-version-check "pip==26.2.1"
+          pip --version
+          pip install -r requirements-build.txt
+
+      - name: Install the pinned runtime and test dependencies
+        run: pip install -r requirements-lock.txt
+
+      # The distribution test: build a wheel and an sdist, assert every frozen corpus is
+      # inside both, install the WHEEL into a throwaway environment, and exercise it from
+      # outside the checkout. This is the gate that catches a package-data regression;
+      # an editable install cannot, because it reads the source tree.
+      - name: Build and verify the distributions
+        run: bash scripts/verify_distribution.sh
+
+      # The source-tree suite, separate from the distribution test above. No API key is
+      # provided and none is needed: every test uses a stub LLM, and the one key-gated live
+      # end-to-end test skips itself.
+      - name: Install the project for the source-tree suite
+        run: pip install -e . --no-deps
+
+      - name: Run the test suite
+        run: pytest -rs

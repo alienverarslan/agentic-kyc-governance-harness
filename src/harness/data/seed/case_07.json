@@ -1,0 +1,59 @@
+{
+  "dossier_id": "DOS-0007",
+  "dossier": {
+    "registry": {
+      "document_date": "2025-04-22",
+      "legal_name": "Karaca Lojistik ve Dış Ticaret Ltd. Şti.",
+      "tax_id": "5530894612",
+      "incorporation_date": "2013-07-08",
+      "registered_address": "Liman Mah. Gümrük Cad. No:35, Konak, İzmir",
+      "share_capital": 1800000,
+      "shareholders": [
+        {"name": "Serkan Karaca", "ownership_pct": 65.0},
+        {"name": "Hülya Karaca", "ownership_pct": 35.0}
+      ],
+      "company_status": "active"
+    },
+    "circular": {
+      "document_date": "2025-12-01",
+      "legal_name": "Karaca Lojistik ve Dış Ticaret Ltd. Şti.",
+      "tax_id": "5530894612",
+      "authorized_signatories": [
+        {"name": "Serkan Karaca", "authority_type": "joint", "valid_until": "2028-12-01"},
+        {"name": "Hülya Karaca", "authority_type": "joint", "valid_until": "2028-12-01"}
+      ],
+      "notary_reference": "İzmir 9. Noterliği 2025/40277"
+    },
+    "ubo": {
+      "document_date": "2025-06-15",
+      "legal_name": "Karaca Lojistik ve Dış Ticaret Ltd. Şti.",
+      "tax_id": "5530894612",
+      "shareholders": [
+        {"name": "Serkan Karaca", "ownership_pct": 65.0},
+        {"name": "Hülya Karaca", "ownership_pct": 35.0}
+      ],
+      "declared_ubo": [
+        {"name": "Serkan Karaca", "ultimate_ownership_pct": 65.0, "ownership_path": "doğrudan pay sahipliği"},
+        {"name": "Hülya Karaca", "ultimate_ownership_pct": 35.0, "ownership_path": "doğrudan pay sahipliği"}
+      ],
+      "declarant_name": "Burak Çelik"
+    }
+  },
+  "decision_truth": {
+    "expected_decision": "escalate",
+    "expected_trajectory": [
+      "extract",
+      "resolve_entities",
+      "check_identity_consistency",
+      "check_ownership_consistency",
+      "check_authority_chain",
+      "check_completeness",
+      "synthesize",
+      "guardrail",
+      "act"
+    ],
+    "expected_skipped_checks": [],
+    "injected_codes": ["C1b"],
+    "rationale": "Açıklanamaz yetki ihlali. Beyanı imzalayan Burak Çelik sirküde yok VE sirkü (2025-12-01) beyandan (2025-06-15) DAHA YENİ — yani beyan tarihinden sonra düzenlenmiş güncel yetki listesinde bu kişi bulunmuyor. 'Yeni atanmış yetkili' açıklaması zamansal olarak kapanıyor: beyan geçersiz veya yetkisiz düzenlenmiş olabilir → escalate. C1a (#6) ile tek yapısal fark tarih yönü: authority check'in delta mantığı #6 ile #7'yi AYRIŞTIRMAK zorunda. Tek belgeye bakan hiçbir kontrol bu ihlali göremez — bu dosya cross-document zorunluluğunun kanıtıdır."
+  }
+}

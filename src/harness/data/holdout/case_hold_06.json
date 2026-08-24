@@ -1,0 +1,59 @@
+{
+  "dossier_id": "HOLD-0006",
+  "dossier": {
+    "registry": {
+      "document_date": "2025-05-20",
+      "legal_name": "Çınar Kağıt ve Ambalaj Limited Şirketi",
+      "tax_id": "6739218405",
+      "incorporation_date": "2010-08-05",
+      "registered_address": "Fırat Mah. Turgut Özal Bulvarı No:91, Battalgazi, Malatya",
+      "share_capital": 2900000,
+      "shareholders": [
+        {"name": "Orhan Sarıçam", "ownership_pct": 55.0},
+        {"name": "Nuri Sarıçam", "ownership_pct": 45.0}
+      ],
+      "company_status": "active"
+    },
+    "circular": {
+      "document_date": "2025-06-02",
+      "legal_name": "Çınar Kağıt ve Ambalaj Limited Şirketi",
+      "tax_id": "6739218405",
+      "authorized_signatories": [
+        {"name": "Orhan Sarıçam", "authority_type": "sole", "valid_until": "2029-06-02"}
+      ],
+      "notary_reference": "Malatya 4. Noterliği 2025/07733"
+    },
+    "ubo": {
+      "document_date": "2024-09-03",
+      "legal_name": "Çınar Kağıt ve Ambalaj Limited Şirketi",
+      "tax_id": "6739218405",
+      "shareholders": [
+        {"name": "Orhan Sarıçam", "ownership_pct": 55.0},
+        {"name": "Hacer Alptekin", "ownership_pct": 45.0}
+      ],
+      "declared_ubo": [
+        {"name": "Orhan Sarıçam", "ultimate_ownership_pct": 55.0, "ownership_path": "doğrudan pay sahipliği"},
+        {"name": "Hacer Alptekin", "ultimate_ownership_pct": 45.0, "ownership_path": "doğrudan pay sahipliği"}
+      ],
+      "declarant_name": "Orhan Sarıçam"
+    }
+  },
+  "decision_truth": {
+    "expected_decision": "escalate",
+    "expected_trajectory": [
+      "extract",
+      "resolve_entities",
+      "check_identity_consistency",
+      "check_ownership_consistency",
+      "check_authority_chain",
+      "check_ubo_derivation",
+      "check_completeness",
+      "synthesize",
+      "guardrail",
+      "act"
+    ],
+    "expected_skipped_checks": [],
+    "injected_codes": ["B1b"],
+    "rationale": "Ortaklık listeleri farklı; aritmetik (çıkan Nuri Sarıçam %45 = giren Hacer Alptekin %45) ve kesişim (Orhan Sarıçam) koşulları sağlansa da (i) koşulu düşer: B3 (2024-09-03) B1'den (2025-05-20) DAHA ESKİDİR, yani daha yeni tescil kaydı devri göstermiyor. Tarih yönü tek başına ne yeterli ne gereklidir; üç koşuldan biri düştüğü için delta açıklanabilir devir sayılmaz → B1b, unexplainable, escalate. Beyanı imzalayan sirkülerde yetkili ve yetkisi beyan tarihini kapsadığı için yetki zinciri temizdir."
+  }
+}

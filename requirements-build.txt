@@ -1,0 +1,20 @@
+# Build-backend surface for CI, pinned exactly.
+#
+# CI installs pip itself at this version first, then this file, then
+# requirements-lock.txt, and finally builds with --no-isolation so the build uses
+# exactly these versions instead of resolving a fresh backend from the network.
+#
+# Pinned pip version (installed separately, before this file):
+#     python -m pip install "pip==26.2.1"
+#
+# Regenerate:
+#     python3 -m venv /tmp/buildenv
+#     /tmp/buildenv/bin/python -m pip install --upgrade pip
+#     /tmp/buildenv/bin/pip install 'setuptools>=77' wheel build
+#     /tmp/buildenv/bin/pip list --format=freeze  # copy the four pins below
+#
+build==1.5.0
+packaging==26.3
+pyproject_hooks==1.2.0
+setuptools==84.0.0
+wheel==0.48.0

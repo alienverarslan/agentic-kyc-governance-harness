@@ -1,0 +1,59 @@
+{
+  "dossier_id": "HOLD-0003",
+  "dossier": {
+    "registry": {
+      "document_date": "2024-12-03",
+      "legal_name": "Yakamoz Ambalaj Anonim Şirketi",
+      "tax_id": "8163025947",
+      "incorporation_date": "2011-10-11",
+      "registered_address": "Şarkiye Mah. Porsuk Bulvarı No:214, Odunpazarı, Eskişehir",
+      "share_capital": 8500000,
+      "shareholders": [
+        {"name": "Sevda Şenocak", "ownership_pct": 55.0},
+        {"name": "Ferhat Şenocak", "ownership_pct": 45.0}
+      ],
+      "company_status": "active"
+    },
+    "circular": {
+      "document_date": "2025-01-16",
+      "legal_name": "YAKAMOZ AMBALAJ A.Ş.",
+      "tax_id": "8163025947",
+      "authorized_signatories": [
+        {"name": "Sevda Şenocak", "authority_type": "sole", "valid_until": "2029-01-16"}
+      ],
+      "notary_reference": "Eskişehir 9. Noterliği 2025/00842"
+    },
+    "ubo": {
+      "document_date": "2025-04-22",
+      "legal_name": "Yakamoz Ambalaj AS",
+      "tax_id": "8163025947",
+      "shareholders": [
+        {"name": "Sevda Şenocak", "ownership_pct": 55.0},
+        {"name": "Ferhat Şenocak", "ownership_pct": 45.0}
+      ],
+      "declared_ubo": [
+        {"name": "Sevda Şenocak", "ultimate_ownership_pct": 55.0, "ownership_path": "doğrudan pay sahipliği"},
+        {"name": "Ferhat Şenocak", "ultimate_ownership_pct": 45.0, "ownership_path": "doğrudan pay sahipliği"}
+      ],
+      "declarant_name": "Sevda Şenocak"
+    }
+  },
+  "decision_truth": {
+    "expected_decision": "approve",
+    "expected_trajectory": [
+      "extract",
+      "resolve_entities",
+      "check_identity_consistency",
+      "check_ownership_consistency",
+      "check_authority_chain",
+      "check_ubo_derivation",
+      "check_completeness",
+      "synthesize",
+      "guardrail",
+      "act"
+    ],
+    "expected_skipped_checks": [],
+    "injected_codes": ["A1"],
+    "rationale": "A.Ş. eki ailesinin üç yüzey biçimi ('Anonim Şirketi', 'A.Ş.', 'AS') tek kanonik ek anahtarına indirgenir; VKN üç belgede aynı olduğu için A2 yoktur. Ayrıca ortak adı 'Sevda Şenocak' kasıtlı olarak seçilmiştir: küçültülmüş hâlinde 'a ş' dizisi geçer ('sevd|a ş|enocak'). Ek kanonikleştirmesi token sınırlı olduğu için bu dizi A.Ş. kısaltması sanılıp ada gömülü şekilde eşleşmemelidir — slice-2'de bulunan gerçek hatanın holdout üzerindeki regresyon nöbetçisi. Tek bulgu A1 (info), karar approve."
+  }
+}

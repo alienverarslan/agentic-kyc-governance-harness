@@ -1,0 +1,60 @@
+{
+  "dossier_id": "HOLD-0012",
+  "dossier": {
+    "registry": {
+      "document_date": "2024-09-19",
+      "legal_name": "Gökkuşağı Cam Sanayi ve Ticaret Ltd. Şti.",
+      "tax_id": "9308572146",
+      "incorporation_date": "2012-05-21",
+      "registered_address": "Yıldırım Beyazıt Mah. Afyon Yolu Cad. No:52, Merkez, Kütahya",
+      "share_capital": 3750000,
+      "shareholders": [
+        {"name": "Kemal Turgutlu", "ownership_pct": 50.0},
+        {"name": "Nazlı Turgutlu", "ownership_pct": 30.0},
+        {"name": "Sedat Bilgehan", "ownership_pct": 20.0}
+      ],
+      "company_status": "active"
+    },
+    "circular": {
+      "document_date": "2024-11-01",
+      "legal_name": "Gökkuşağı Cam Sanayi ve Ticaret Ltd. Şti.",
+      "tax_id": "9308572146",
+      "authorized_signatories": [
+        {"name": "Kemal Turgutlu", "authority_type": "sole", "valid_until": "2028-11-01"}
+      ],
+      "notary_reference": "Kütahya 4. Noterliği 2024/16628"
+    },
+    "ubo": {
+      "document_date": "2025-02-06",
+      "legal_name": "Gökkuşağı Cam Sanayi ve Ticaret Ltd. Şti.",
+      "tax_id": "9308572146",
+      "shareholders": [
+        {"name": "Kemal Turgutlu", "ownership_pct": 50.0},
+        {"name": "Nazlı Turgutlu", "ownership_pct": 30.0},
+        {"name": "Sedat Bilgehan", "ownership_pct": 20.0}
+      ],
+      "declared_ubo": [
+        {"name": "Kemal Turgutlu", "ultimate_ownership_pct": 50.0, "ownership_path": "doğrudan pay sahipliği"}
+      ],
+      "declarant_name": "Kemal Turgutlu"
+    }
+  },
+  "decision_truth": {
+    "expected_decision": "request_more_info",
+    "expected_trajectory": [
+      "extract",
+      "resolve_entities",
+      "check_identity_consistency",
+      "check_ownership_consistency",
+      "check_authority_chain",
+      "check_ubo_derivation",
+      "check_completeness",
+      "synthesize",
+      "guardrail",
+      "act"
+    ],
+    "expected_skipped_checks": [],
+    "injected_codes": ["D1a"],
+    "rationale": "Üç ortaklı yapı, eşik davranışının iki yönünü aynı anda sınar. Nazlı Turgutlu %30 ile UBO_THRESHOLD_PCT=%25 eşiğinin ÜZERİNDE olmasına rağmen declared_ubo'da yok → D1a, explainable, request_more_info; düzeltilmiş beyan istenmeli. Buna karşılık Sedat Bilgehan %20 ile eşiğin ALTINDA olduğu için beyan edilmemesi meşrudur ve bulgu üretmemelidir — yanlış pozitif nöbetçisi. Beyan edilen toplam %50 olduğundan D1b yoktur; ortaklık listeleri özdeş ve %100 olduğu için B kodları yoktur."
+  }
+}

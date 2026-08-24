@@ -1,0 +1,49 @@
+{
+  "dossier_id": "HOLD-0014",
+  "dossier": {
+    "registry": {
+      "document_date": "2024-07-25",
+      "legal_name": "Umut Geri Dönüşüm Sanayi ve Ticaret Ltd. Şti.",
+      "tax_id": "6152479038",
+      "incorporation_date": "2016-09-09",
+      "registered_address": "Hürriyet Mah. Çorlu Cad. No:77, Süleymanpaşa, Tekirdağ",
+      "share_capital": 1480000,
+      "shareholders": [
+        {"name": "Uğur Bilgehan", "ownership_pct": 55.0},
+        {"name": "Nurhan Bilgehan", "ownership_pct": 45.0}
+      ],
+      "company_status": "active"
+    },
+    "ubo": {
+      "document_date": "2025-01-31",
+      "legal_name": "Umut Geri Dönüşüm Sanayi ve Ticaret Ltd. Şti.",
+      "tax_id": "6152479038",
+      "shareholders": [
+        {"name": "Uğur Bilgehan", "ownership_pct": 55.0},
+        {"name": "Nurhan Bilgehan", "ownership_pct": 45.0}
+      ],
+      "declared_ubo": [
+        {"name": "Uğur Bilgehan", "ultimate_ownership_pct": 55.0, "ownership_path": "doğrudan pay sahipliği"},
+        {"name": "Nurhan Bilgehan", "ultimate_ownership_pct": 45.0, "ownership_path": "doğrudan pay sahipliği"}
+      ],
+      "declarant_name": "Uğur Bilgehan"
+    }
+  },
+  "decision_truth": {
+    "expected_decision": "request_more_info",
+    "expected_trajectory": [
+      "extract",
+      "resolve_entities",
+      "check_identity_consistency",
+      "check_ownership_consistency",
+      "check_ubo_derivation",
+      "check_completeness",
+      "synthesize",
+      "guardrail",
+      "act"
+    ],
+    "expected_skipped_checks": ["check_authority_chain"],
+    "injected_codes": ["E1"],
+    "rationale": "İmza sirküleri dosyada yok → E1, explainable, request_more_info. Eksik belge aynı zamanda aşağı akış davranışını da belirler: check_authority_chain sirküler olmadan ÇALIŞAMAZ, dolayısıyla ran=False ile skipped_checks'e yazılır ve trajectory'ye EKLENMEZ — atlanan bir kontrol asla 'çalıştı ve temiz' gibi görünemez. Kimlik kontrolü iki belge mevcut olduğu için çalışır ve temizdir. Tohum fikstürlerinden kasıtlı farklılık: seed_08 UBO beyanını eksiltirken bu vaka sirküleri eksiltir, yani farklı bir atlama kolu test edilir."
+  }
+}

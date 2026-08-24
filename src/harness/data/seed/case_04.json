@@ -1,0 +1,59 @@
+{
+  "dossier_id": "DOS-0004",
+  "dossier": {
+    "registry": {
+      "document_date": "2024-02-27",
+      "legal_name": "Meltem Tekstil Konfeksiyon Ltd. Şti.",
+      "tax_id": "3378512906",
+      "incorporation_date": "2012-09-03",
+      "registered_address": "Merkez Mah. Fevzi Çakmak Cad. No:23, Merkezefendi, Denizli",
+      "share_capital": 1200000,
+      "shareholders": [
+        {"name": "Ahmet Kaya", "ownership_pct": 50.0},
+        {"name": "Zeynep Kaya", "ownership_pct": 30.0},
+        {"name": "Murat Öztürk", "ownership_pct": 20.0}
+      ],
+      "company_status": "active"
+    },
+    "circular": {
+      "document_date": "2024-03-11",
+      "legal_name": "Meltem Tekstil Konfeksiyon Ltd. Şti.",
+      "tax_id": "3378512906",
+      "authorized_signatories": [
+        {"name": "Ahmet Kaya", "authority_type": "sole", "valid_until": "2027-03-11"}
+      ],
+      "notary_reference": "Denizli 2. Noterliği 2024/05128"
+    },
+    "ubo": {
+      "document_date": "2025-11-10",
+      "legal_name": "Meltem Tekstil Konfeksiyon Ltd. Şti.",
+      "tax_id": "3378512906",
+      "shareholders": [
+        {"name": "Ahmet Kaya", "ownership_pct": 50.0},
+        {"name": "Zeynep Kaya", "ownership_pct": 50.0}
+      ],
+      "declared_ubo": [
+        {"name": "Ahmet Kaya", "ultimate_ownership_pct": 50.0, "ownership_path": "doğrudan pay sahipliği"},
+        {"name": "Zeynep Kaya", "ultimate_ownership_pct": 50.0, "ownership_path": "doğrudan pay sahipliği"}
+      ],
+      "declarant_name": "Ahmet Kaya"
+    }
+  },
+  "decision_truth": {
+    "expected_decision": "request_more_info",
+    "expected_trajectory": [
+      "extract",
+      "resolve_entities",
+      "check_identity_consistency",
+      "check_ownership_consistency",
+      "check_authority_chain",
+      "check_completeness",
+      "synthesize",
+      "guardrail",
+      "act"
+    ],
+    "expected_skipped_checks": [],
+    "injected_codes": ["B1a"],
+    "rationale": "Açıklanabilir ortaklık değişikliği. B3 (2025-11-10) sicilden (2024-02-27) belirgin yeni; Murat Öztürk çıkmış, %20'lik payı Zeynep Kaya tarafından emilmiş (30→50), toplam %100 korunmuş — hisse devri paterniyle tutarlı. Otonom onay YANLIŞ (sicilde görünmeyen devir teyitsiz), escalate de YANLIŞ (yapı açıklanabilir). Doğru davranış: devir belgesini istemek (request_more_info). Kimlik, yetki ve bütünlük temiz — bulgu yalnızca ownership kontrolünden gelmeli."
+  }
+}

@@ -1,0 +1,59 @@
+{
+  "dossier_id": "HOLD-0017",
+  "dossier": {
+    "registry": {
+      "document_date": "2024-08-22",
+      "legal_name": "Serhat Havacılık Hizmetleri Anonim Şirketi",
+      "tax_id": "6210394857",
+      "incorporation_date": "2013-06-04",
+      "registered_address": "Lalapaşa Mah. Havaalanı Cad. No:36, Yakutiye, Erzurum",
+      "share_capital": 5900000,
+      "shareholders": [
+        {"name": "Yusuf Kavuncu", "ownership_pct": 70.0},
+        {"name": "Naciye Kavuncu", "ownership_pct": 30.0}
+      ],
+      "company_status": "active"
+    },
+    "circular": {
+      "document_date": "2024-10-03",
+      "legal_name": "Serhat Havacılık Hizmetleri Anonim Şirketi",
+      "tax_id": "6210394851",
+      "authorized_signatories": [
+        {"name": "Yusuf Kavuncu", "authority_type": "sole", "valid_until": "2028-10-03"}
+      ],
+      "notary_reference": "Erzurum 5. Noterliği 2024/20337"
+    },
+    "ubo": {
+      "document_date": "2025-02-14",
+      "legal_name": "Serhat Havacılık Hizmetleri Anonim Şirketi",
+      "tax_id": "6210394857",
+      "shareholders": [
+        {"name": "Yusuf Kavuncu", "ownership_pct": 70.0},
+        {"name": "Firdevs Duraklı", "ownership_pct": 30.0}
+      ],
+      "declared_ubo": [
+        {"name": "Yusuf Kavuncu", "ultimate_ownership_pct": 70.0, "ownership_path": "doğrudan pay sahipliği"},
+        {"name": "Firdevs Duraklı", "ultimate_ownership_pct": 30.0, "ownership_path": "doğrudan pay sahipliği"}
+      ],
+      "declarant_name": "Yusuf Kavuncu"
+    }
+  },
+  "decision_truth": {
+    "expected_decision": "escalate",
+    "expected_trajectory": [
+      "extract",
+      "resolve_entities",
+      "check_identity_consistency",
+      "check_ownership_consistency",
+      "check_authority_chain",
+      "check_ubo_derivation",
+      "check_completeness",
+      "synthesize",
+      "guardrail",
+      "act"
+    ],
+    "expected_skipped_checks": [],
+    "injected_codes": ["A2", "B1a"],
+    "rationale": "BİRLEŞİK VAKA — asimetrik ağırlığı sınar. Sirkülerdeki VKN son hanesinde tescil ve beyan kayıtlarından ayrılıyor → A2 (unexplainable). Bağımsız olarak, ortaklık deltası üç koşulun üçünü de sağlıyor (B3 daha yeni; Yusuf Kavuncu devam ediyor; çıkan Naciye Kavuncu %30 = giren Firdevs Duraklı %30) → B1a (explainable). Unvan üç belgede birebir aynı olduğu için A1 yoktur. Kritik özellik: maksimum ağırlık kuralı gereği tek bir unexplainable bulgu kararı escalate'e çeker, ancak explainable bulgu RAPORDAN DÜŞMEZ — nihai kod kümesi {A2, B1a} olmalıdır. 'Doğru karar, doğru gerekçeyle' ilkesi tam olarak burada sınanır: yalnızca A2 üreten bir motor doğru kararı yanlış gerekçeyle verirdi."
+  }
+}

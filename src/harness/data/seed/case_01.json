@@ -1,0 +1,58 @@
+{
+  "dossier_id": "DOS-0001",
+  "dossier": {
+    "registry": {
+      "document_date": "2024-06-12",
+      "legal_name": "Kardelen Gıda Sanayi ve Ticaret Ltd. Şti.",
+      "tax_id": "4821067395",
+      "incorporation_date": "2016-02-18",
+      "registered_address": "Cumhuriyet Mah. Atatürk Cad. No:47/3, Kadıköy, İstanbul",
+      "share_capital": 500000,
+      "shareholders": [
+        {"name": "Hasan Kardelen", "ownership_pct": 60.0},
+        {"name": "Emine Kardelen", "ownership_pct": 40.0}
+      ],
+      "company_status": "active"
+    },
+    "circular": {
+      "document_date": "2024-07-01",
+      "legal_name": "Kardelen Gıda Sanayi ve Ticaret Ltd. Şti.",
+      "tax_id": "4821067395",
+      "authorized_signatories": [
+        {"name": "Hasan Kardelen", "authority_type": "sole", "valid_until": "2027-07-01"}
+      ],
+      "notary_reference": "İstanbul 14. Noterliği 2024/18342"
+    },
+    "ubo": {
+      "document_date": "2025-01-20",
+      "legal_name": "Kardelen Gıda Sanayi ve Ticaret Ltd. Şti.",
+      "tax_id": "4821067395",
+      "shareholders": [
+        {"name": "Hasan Kardelen", "ownership_pct": 60.0},
+        {"name": "Emine Kardelen", "ownership_pct": 40.0}
+      ],
+      "declared_ubo": [
+        {"name": "Hasan Kardelen", "ultimate_ownership_pct": 60.0, "ownership_path": "doğrudan pay sahipliği"},
+        {"name": "Emine Kardelen", "ultimate_ownership_pct": 40.0, "ownership_path": "doğrudan pay sahipliği"}
+      ],
+      "declarant_name": "Hasan Kardelen"
+    }
+  },
+  "decision_truth": {
+    "expected_decision": "approve",
+    "expected_trajectory": [
+      "extract",
+      "resolve_entities",
+      "check_identity_consistency",
+      "check_ownership_consistency",
+      "check_authority_chain",
+      "check_completeness",
+      "synthesize",
+      "guardrail",
+      "act"
+    ],
+    "expected_skipped_checks": [],
+    "injected_codes": ["NONE"],
+    "rationale": "Tam ve tutarlı dosya. Üç belgede kimlik (unvan + VKN) birebir tutarlı; B1 ve B3 ortaklık yapısı aynı ve toplam %100; beyanı imzalayan Hasan Kardelen sirküde tek imza yetkilisi ve yetki süresi beyan tarihini kapsıyor. Hiçbir kontrol bulgu üretmemeli."
+  }
+}

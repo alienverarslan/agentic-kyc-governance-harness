@@ -1,0 +1,12 @@
+# This project is developed and run on Linux/WSL. Pin text files to LF explicitly so a
+# Windows-side git (core.autocrlf=true) can never write CRLF into the working tree or the
+# history. Selective rules rather than a blanket `* text=auto`: only the file types this
+# repo actually contains are declared, and anything else is left to git's own detection.
+*.py    text eol=lf
+*.toml  text eol=lf
+*.json  text eol=lf
+*.md    text eol=lf
+*.yml   text eol=lf
+*.yaml  text eol=lf
+*.txt   text eol=lf
+*.sh    text eol=lf

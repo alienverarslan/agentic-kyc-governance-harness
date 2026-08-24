@@ -1,0 +1,59 @@
+{
+  "dossier_id": "HOLD-0008",
+  "dossier": {
+    "registry": {
+      "document_date": "2024-08-14",
+      "legal_name": "Turkuaz Seracılık Anonim Şirketi",
+      "tax_id": "7362940518",
+      "incorporation_date": "2013-11-26",
+      "registered_address": "Kemer Mah. Söke Yolu Cad. No:156, Efeler, Aydın",
+      "share_capital": 5400000,
+      "shareholders": [
+        {"name": "Cengiz Akyürek", "ownership_pct": 60.0},
+        {"name": "Perihan Akyürek", "ownership_pct": 55.0}
+      ],
+      "company_status": "active"
+    },
+    "circular": {
+      "document_date": "2024-09-27",
+      "legal_name": "Turkuaz Seracılık Anonim Şirketi",
+      "tax_id": "7362940518",
+      "authorized_signatories": [
+        {"name": "Cengiz Akyürek", "authority_type": "sole", "valid_until": "2028-09-27"}
+      ],
+      "notary_reference": "Aydın 7. Noterliği 2024/25610"
+    },
+    "ubo": {
+      "document_date": "2025-05-06",
+      "legal_name": "Turkuaz Seracılık Anonim Şirketi",
+      "tax_id": "7362940518",
+      "shareholders": [
+        {"name": "Cengiz Akyürek", "ownership_pct": 60.0},
+        {"name": "Perihan Akyürek", "ownership_pct": 40.0}
+      ],
+      "declared_ubo": [
+        {"name": "Cengiz Akyürek", "ultimate_ownership_pct": 60.0, "ownership_path": "doğrudan pay sahipliği"},
+        {"name": "Perihan Akyürek", "ultimate_ownership_pct": 40.0, "ownership_path": "doğrudan pay sahipliği"}
+      ],
+      "declarant_name": "Cengiz Akyürek"
+    }
+  },
+  "decision_truth": {
+    "expected_decision": "escalate",
+    "expected_trajectory": [
+      "extract",
+      "resolve_entities",
+      "check_identity_consistency",
+      "check_ownership_consistency",
+      "check_authority_chain",
+      "check_ubo_derivation",
+      "check_completeness",
+      "synthesize",
+      "guardrail",
+      "act"
+    ],
+    "expected_skipped_checks": [],
+    "injected_codes": ["B2b"],
+    "rationale": "Tescil kaydındaki pay listesi %115'e toplanıyor (%60 + %55) — yapısal olarak imkânsız, iyi niyetli tek belgelik açıklaması yok → B2b, unexplainable, escalate. İmkânsızlık kontrolü eksiklik kontrolünden önce geldiği ve erken döndüğü için B2a/B1a/B1b üretilmez. B3 listesi kasıtlı olarak %100'e toplanır (%60 + %40) ve beyan edilen UBO toplamı da %100'dür; böylece bulgu tek bir koda izole kalır ve D1b'ye taşmaz."
+  }
+}

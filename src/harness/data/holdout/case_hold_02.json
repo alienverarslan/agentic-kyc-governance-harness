@@ -1,0 +1,59 @@
+{
+  "dossier_id": "HOLD-0002",
+  "dossier": {
+    "registry": {
+      "document_date": "2024-07-19",
+      "legal_name": "Işıklar Denizcilik Sanayi ve Ticaret Ltd. Şti.",
+      "tax_id": "3947106258",
+      "incorporation_date": "2013-05-30",
+      "registered_address": "Değirmenağzı Mah. Çeliktepe Cad. No:8, Kozlu, Zonguldak",
+      "share_capital": 3200000,
+      "shareholders": [
+        {"name": "Halil Tekinalp", "ownership_pct": 65.0},
+        {"name": "Kezban Tekinalp", "ownership_pct": 35.0}
+      ],
+      "company_status": "active"
+    },
+    "circular": {
+      "document_date": "2024-08-30",
+      "legal_name": "IŞIKLAR DENİZCİLİK SAN. VE TİC. LTD. ŞTİ.",
+      "tax_id": "3947106258",
+      "authorized_signatories": [
+        {"name": "Halil Tekinalp", "authority_type": "sole", "valid_until": "2028-08-30"}
+      ],
+      "notary_reference": "Zonguldak 2. Noterliği 2024/13470"
+    },
+    "ubo": {
+      "document_date": "2025-01-09",
+      "legal_name": "Isiklar Denizcilik San ve Tic Ltd Sti",
+      "tax_id": "3947106258",
+      "shareholders": [
+        {"name": "Halil Tekinalp", "ownership_pct": 65.0},
+        {"name": "Kezban Tekinalp", "ownership_pct": 35.0}
+      ],
+      "declared_ubo": [
+        {"name": "Halil Tekinalp", "ultimate_ownership_pct": 65.0, "ownership_path": "doğrudan pay sahipliği"},
+        {"name": "Kezban Tekinalp", "ultimate_ownership_pct": 35.0, "ownership_path": "doğrudan pay sahipliği"}
+      ],
+      "declarant_name": "Halil Tekinalp"
+    }
+  },
+  "decision_truth": {
+    "expected_decision": "approve",
+    "expected_trajectory": [
+      "extract",
+      "resolve_entities",
+      "check_identity_consistency",
+      "check_ownership_consistency",
+      "check_authority_chain",
+      "check_ubo_derivation",
+      "check_completeness",
+      "synthesize",
+      "guardrail",
+      "act"
+    ],
+    "expected_skipped_checks": [],
+    "injected_codes": ["A1"],
+    "rationale": "Unvan üç belgede üç farklı yüzey biçiminde yazılmış: doğru diakritikli hâli, tümü büyük harfli kısaltmalı hâli ve ASCII'ye indirgenmiş hâli. Normalizasyon zinciri (Türkçe küçültme + ek kanonikleştirme + diakritik katlama) üçünü de tek anahtara indirger; VKN üç belgede aynı olduğu için kimlik çelişkisi yoktur. Bu, naif str.lower() ile 'IŞIKLAR' → 'işıklar' hatasının A2 üretmesini engelleyen tuzağın holdout üzerindeki karşılığıdır. Tek bulgu A1 (info), karar approve."
+  }
+}

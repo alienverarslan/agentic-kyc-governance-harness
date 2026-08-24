@@ -1,0 +1,59 @@
+{
+  "dossier_id": "HOLD-0010",
+  "dossier": {
+    "registry": {
+      "document_date": "2024-12-20",
+      "legal_name": "Kuzey Mermer Madencilik Sanayi ve Ticaret A.Ş.",
+      "tax_id": "8027614395",
+      "incorporation_date": "2011-07-08",
+      "registered_address": "Emirbeyazıt Mah. Marmaris Yolu Cad. No:45, Menteşe, Muğla",
+      "share_capital": 7300000,
+      "shareholders": [
+        {"name": "Ergün Yaşaroğlu", "ownership_pct": 45.0},
+        {"name": "Bahar Yaşaroğlu", "ownership_pct": 55.0}
+      ],
+      "company_status": "active"
+    },
+    "circular": {
+      "document_date": "2025-02-11",
+      "legal_name": "Kuzey Mermer Madencilik Sanayi ve Ticaret A.Ş.",
+      "tax_id": "8027614395",
+      "authorized_signatories": [
+        {"name": "Ergün Yaşaroğlu", "authority_type": "sole", "valid_until": "2029-02-11"}
+      ],
+      "notary_reference": "Muğla 5. Noterliği 2025/02947"
+    },
+    "ubo": {
+      "document_date": "2025-03-05",
+      "legal_name": "Kuzey Mermer Madencilik Sanayi ve Ticaret A.Ş.",
+      "tax_id": "8027614395",
+      "shareholders": [
+        {"name": "Ergün Yaşaroğlu", "ownership_pct": 45.0},
+        {"name": "Bahar Yaşaroğlu", "ownership_pct": 55.0}
+      ],
+      "declared_ubo": [
+        {"name": "Ergün Yaşaroğlu", "ultimate_ownership_pct": 45.0, "ownership_path": "doğrudan pay sahipliği"},
+        {"name": "Bahar Yaşaroğlu", "ultimate_ownership_pct": 55.0, "ownership_path": "doğrudan pay sahipliği"}
+      ],
+      "declarant_name": "Gülsüm Hacıoğlu"
+    }
+  },
+  "decision_truth": {
+    "expected_decision": "escalate",
+    "expected_trajectory": [
+      "extract",
+      "resolve_entities",
+      "check_identity_consistency",
+      "check_ownership_consistency",
+      "check_authority_chain",
+      "check_ubo_derivation",
+      "check_completeness",
+      "synthesize",
+      "guardrail",
+      "act"
+    ],
+    "expected_skipped_checks": [],
+    "injected_codes": ["C1b"],
+    "rationale": "Beyanı imzalayan Gülsüm Hacıoğlu sirkülerde yok VE sirküler beyandan yalnızca 22 gün eski — yani neredeyse eşzamanlı. Zamansal açıklama (arada yeni yetkili atanmış olabilir) bu kadar kısa aralıkta kapalıdır: güncel sirkülerde bulunmayan bir kişi beyanı imzalamıştır → C1b, unexplainable, escalate. C1a ile aradaki tek fark gün farkının 365 eşiğinin hangi tarafında kaldığıdır; hold_09 ile bu çift, dalın doğru kolunu ayrıştırır."
+  }
+}

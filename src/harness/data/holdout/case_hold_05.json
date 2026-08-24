@@ -1,0 +1,59 @@
+{
+  "dossier_id": "HOLD-0005",
+  "dossier": {
+    "registry": {
+      "document_date": "2024-11-08",
+      "legal_name": "Bereket Değirmencilik Sanayi ve Ticaret A.Ş.",
+      "tax_id": "2508963741",
+      "incorporation_date": "2012-02-27",
+      "registered_address": "Yenice Mah. Diyarbakır Yolu Cad. No:27, Haliliye, Şanlıurfa",
+      "share_capital": 6600000,
+      "shareholders": [
+        {"name": "Bekir Menteşoğlu", "ownership_pct": 60.0},
+        {"name": "Tuğçe Menteşoğlu", "ownership_pct": 40.0}
+      ],
+      "company_status": "active"
+    },
+    "circular": {
+      "document_date": "2024-12-19",
+      "legal_name": "Bereket Değirmencilik Sanayi ve Ticaret A.Ş.",
+      "tax_id": "2508963741",
+      "authorized_signatories": [
+        {"name": "Bekir Menteşoğlu", "authority_type": "sole", "valid_until": "2028-12-19"}
+      ],
+      "notary_reference": "Şanlıurfa 5. Noterliği 2024/31558"
+    },
+    "ubo": {
+      "document_date": "2025-06-17",
+      "legal_name": "Bereket Değirmencilik Sanayi ve Ticaret A.Ş.",
+      "tax_id": "2508963741",
+      "shareholders": [
+        {"name": "Bekir Menteşoğlu", "ownership_pct": 60.0},
+        {"name": "Emrah Kavuncu", "ownership_pct": 40.0}
+      ],
+      "declared_ubo": [
+        {"name": "Bekir Menteşoğlu", "ultimate_ownership_pct": 60.0, "ownership_path": "doğrudan pay sahipliği"},
+        {"name": "Emrah Kavuncu", "ultimate_ownership_pct": 40.0, "ownership_path": "doğrudan pay sahipliği"}
+      ],
+      "declarant_name": "Bekir Menteşoğlu"
+    }
+  },
+  "decision_truth": {
+    "expected_decision": "request_more_info",
+    "expected_trajectory": [
+      "extract",
+      "resolve_entities",
+      "check_identity_consistency",
+      "check_ownership_consistency",
+      "check_authority_chain",
+      "check_ubo_derivation",
+      "check_completeness",
+      "synthesize",
+      "guardrail",
+      "act"
+    ],
+    "expected_skipped_checks": [],
+    "injected_codes": ["B1a"],
+    "rationale": "B1 ve B3 ortaklık listeleri farklı ancak üç koşullu açıklanabilirlik testinin üçünü de sağlıyor: (i) B3 (2025-06-17) B1'den (2024-11-08) yenidir; (ii) Bekir Menteşoğlu her iki listede de devam eden ortaktır (kesişim boş değil); (iii) aritmetik basit bir devir olarak kapanır — çıkan Tuğçe Menteşoğlu %40, giren Emrah Kavuncu %40, her iki liste de %100. Açıklanabilir devir → B1a, request_more_info; hisse devir belgesi istenmeli. Her iki B3 ortağı da beyan edildiği için D1a yoktur."
+  }
+}

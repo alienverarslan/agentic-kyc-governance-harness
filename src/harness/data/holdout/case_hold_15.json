@@ -1,0 +1,62 @@
+{
+  "dossier_id": "HOLD-0015",
+  "dossier": {
+    "registry": {
+      "document_date": "2025-03-11",
+      "legal_name": "",
+      "tax_id": "7390458216",
+      "incorporation_date": "2015-09-14",
+      "registered_address": "Çömlekçi Mah. Sahil Cad. No:112, Ortahisar, Trabzon",
+      "share_capital": 2400000,
+      "shareholders": [
+        {"name": "Necmiye Balcıoğlu", "ownership_pct": 45.0},
+        {"name": "Recep Sarıkaya", "ownership_pct": 30.0},
+        {"name": "Vedat Tosunoğlu", "ownership_pct": 25.0}
+      ],
+      "company_status": "active"
+    },
+    "circular": {
+      "document_date": "2025-04-02",
+      "legal_name": "",
+      "tax_id": "7390458216",
+      "authorized_signatories": [
+        {"name": "Necmiye Balcıoğlu", "authority_type": "sole", "valid_until": "2028-04-02"}
+      ],
+      "notary_reference": "Trabzon 3. Noterliği 2025/04117"
+    },
+    "ubo": {
+      "document_date": "2025-05-19",
+      "legal_name": "",
+      "tax_id": "7390458216",
+      "shareholders": [
+        {"name": "Necmiye Balcıoğlu", "ownership_pct": 45.0},
+        {"name": "Recep Sarıkaya", "ownership_pct": 30.0},
+        {"name": "Vedat Tosunoğlu", "ownership_pct": 25.0}
+      ],
+      "declared_ubo": [
+        {"name": "Necmiye Balcıoğlu", "ultimate_ownership_pct": 45.0, "ownership_path": "doğrudan pay sahipliği"},
+        {"name": "Recep Sarıkaya", "ultimate_ownership_pct": 30.0, "ownership_path": "doğrudan pay sahipliği"},
+        {"name": "Vedat Tosunoğlu", "ultimate_ownership_pct": 25.0, "ownership_path": "doğrudan pay sahipliği"}
+      ],
+      "declarant_name": "Necmiye Balcıoğlu"
+    }
+  },
+  "decision_truth": {
+    "expected_decision": "request_more_info",
+    "expected_trajectory": [
+      "extract",
+      "resolve_entities",
+      "check_identity_consistency",
+      "check_ownership_consistency",
+      "check_authority_chain",
+      "check_ubo_derivation",
+      "check_completeness",
+      "synthesize",
+      "guardrail",
+      "act"
+    ],
+    "expected_skipped_checks": [],
+    "injected_codes": ["E2"],
+    "rationale": "Zorunlu alan mevcut ama boş: unvan alanı üç belgede de doldurulmamış → E2, explainable, request_more_info. İzolasyon kasıtlıdır: unvan yüzeyleri üç belgede de AYNI (boş) olduğu için kimlik kontrolünün A1 dalına hiç girilmez ve bulgu bir üçüncü parti bulanık eşleştiricinin boş-dize davranışına bağlı kalmaz; VKN'ler birebir aynı olduğu için A2 yoktur. check_completeness boşluk denetimini legal_name için yalnızca tescil kaydında yaptığından tek bir E2 üretilir. Ortaklık listeleri özdeş ve %100; beyanı imzalayan sirkülerde tek imza yetkilisi ve yetkisi beyan tarihini kapsıyor; tam %25 eşiğindeki Vedat Tosunoğlu dahil eşik-üstü tüm ortaklar beyan edilmiş (eşik sınırında D1a üretilmemeli)."
+  }
+}

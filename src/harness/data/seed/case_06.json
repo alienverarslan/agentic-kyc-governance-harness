@@ -1,0 +1,58 @@
+{
+  "dossier_id": "DOS-0006",
+  "dossier": {
+    "registry": {
+      "document_date": "2025-05-30",
+      "legal_name": "Pelin Bilişim Teknolojileri A.Ş.",
+      "tax_id": "2196540787",
+      "incorporation_date": "2019-01-25",
+      "registered_address": "Barbaros Mah. Halk Cad. No:8/B, Ataşehir, İstanbul",
+      "share_capital": 1500000,
+      "shareholders": [
+        {"name": "Pelin Arslan", "ownership_pct": 55.0},
+        {"name": "Deniz Arslan", "ownership_pct": 45.0}
+      ],
+      "company_status": "active"
+    },
+    "circular": {
+      "document_date": "2023-09-12",
+      "legal_name": "Pelin Bilişim Teknolojileri A.Ş.",
+      "tax_id": "2196540787",
+      "authorized_signatories": [
+        {"name": "Mehmet Aydın", "authority_type": "sole", "valid_until": "2026-09-12"}
+      ],
+      "notary_reference": "İstanbul 33. Noterliği 2023/61024"
+    },
+    "ubo": {
+      "document_date": "2025-10-05",
+      "legal_name": "Pelin Bilişim Teknolojileri A.Ş.",
+      "tax_id": "2196540787",
+      "shareholders": [
+        {"name": "Pelin Arslan", "ownership_pct": 55.0},
+        {"name": "Deniz Arslan", "ownership_pct": 45.0}
+      ],
+      "declared_ubo": [
+        {"name": "Pelin Arslan", "ultimate_ownership_pct": 55.0, "ownership_path": "doğrudan pay sahipliği"},
+        {"name": "Deniz Arslan", "ultimate_ownership_pct": 45.0, "ownership_path": "doğrudan pay sahipliği"}
+      ],
+      "declarant_name": "Elif Şahin"
+    }
+  },
+  "decision_truth": {
+    "expected_decision": "request_more_info",
+    "expected_trajectory": [
+      "extract",
+      "resolve_entities",
+      "check_identity_consistency",
+      "check_ownership_consistency",
+      "check_authority_chain",
+      "check_completeness",
+      "synthesize",
+      "guardrail",
+      "act"
+    ],
+    "expected_skipped_checks": [],
+    "injected_codes": ["C1a"],
+    "rationale": "Açıklanabilir yetki boşluğu. Beyanı imzalayan Elif Şahin sirküde yok; ANCAK sirkü (2023-09-12) beyandan (2025-10-05) iki yıldan fazla eski — aradaki dönemde atanmış yeni bir yetkili olması makul. Otonom escalate YANLIŞ (aşırı temkin), approve da YANLIŞ (yetki teyitsiz). Doğru davranış: güncel imza sirküsü istemek (request_more_info). Kimlik, ortaklık ve bütünlük temiz; ayrıca sirküdeki Mehmet Aydın'ın ortak OLMAMASI kasıtlı — profesyonel yönetici imza yetkilisi olabilir, bu tek başına bulgu değildir."
+  }
+}

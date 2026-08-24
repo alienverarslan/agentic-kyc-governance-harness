@@ -1,0 +1,59 @@
+{
+  "dossier_id": "HOLD-0016",
+  "dossier": {
+    "registry": {
+      "document_date": "2024-08-06",
+      "legal_name": "Kervan Seramik Sanayi ve Ticaret Ltd. Şti.",
+      "tax_id": "7594038261",
+      "incorporation_date": "2014-01-23",
+      "registered_address": "Kılavuz Mah. Ankara Cad. No:203, Merkez, Sivas",
+      "share_capital": 2650000,
+      "shareholders": [
+        {"name": "Turan Özgörkey", "ownership_pct": 50.0},
+        {"name": "Hediye Özgörkey", "ownership_pct": 35.0}
+      ],
+      "company_status": "active"
+    },
+    "circular": {
+      "document_date": "2024-09-14",
+      "legal_name": "KERVAN SERAMİK SAN. VE TİC. LTD. ŞTİ.",
+      "tax_id": "7594038261",
+      "authorized_signatories": [
+        {"name": "Turan Özgörkey", "authority_type": "sole", "valid_until": "2028-09-14"}
+      ],
+      "notary_reference": "Sivas 2. Noterliği 2024/09986"
+    },
+    "ubo": {
+      "document_date": "2025-02-19",
+      "legal_name": "Kervan Seramik San ve Tic Ltd Sti",
+      "tax_id": "7594038261",
+      "shareholders": [
+        {"name": "Turan Özgörkey", "ownership_pct": 50.0},
+        {"name": "Hediye Özgörkey", "ownership_pct": 35.0}
+      ],
+      "declared_ubo": [
+        {"name": "Turan Özgörkey", "ultimate_ownership_pct": 50.0, "ownership_path": "doğrudan pay sahipliği"},
+        {"name": "Hediye Özgörkey", "ultimate_ownership_pct": 35.0, "ownership_path": "doğrudan pay sahipliği"}
+      ],
+      "declarant_name": "Turan Özgörkey"
+    }
+  },
+  "decision_truth": {
+    "expected_decision": "request_more_info",
+    "expected_trajectory": [
+      "extract",
+      "resolve_entities",
+      "check_identity_consistency",
+      "check_ownership_consistency",
+      "check_authority_chain",
+      "check_ubo_derivation",
+      "check_completeness",
+      "synthesize",
+      "guardrail",
+      "act"
+    ],
+    "expected_skipped_checks": [],
+    "injected_codes": ["A1", "B2a"],
+    "rationale": "BİRLEŞİK VAKA — tek enjektörlü üretecin kuramadığı türden. İki bağımsız kontrol aynı anda bulgu üretir: unvan üç belgede farklı yüzey biçimlerinde yazılmış ama tek varlığa normalize olur ve VKN'ler aynıdır → A1 (info); ortaklık listeleri her iki belgede de %85'e toplanır → B2a (explainable). Karar cebrinin sınanan özelliği şudur: koruma katmanı bulguların MAKSİMUM ağırlığını alır, bu yüzden info bir bulgu explainable bir bulguyu ne bastırır ne de yükseltir — sonuç request_more_info olmalı, ve iki kodun İKİSİ de raporda kalmalı (hiçbir bulgu düşürülmemeli)."
+  }
+}

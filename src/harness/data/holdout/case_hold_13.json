@@ -1,0 +1,59 @@
+{
+  "dossier_id": "HOLD-0013",
+  "dossier": {
+    "registry": {
+      "document_date": "2024-10-08",
+      "legal_name": "Doruk Kablo Sanayi ve Ticaret Anonim Şirketi",
+      "tax_id": "2846195730",
+      "incorporation_date": "2010-03-16",
+      "registered_address": "Adnan Menderes Mah. Turgutlu Cad. No:118, Yunusemre, Manisa",
+      "share_capital": 9200000,
+      "shareholders": [
+        {"name": "Barış Sönmezateş", "ownership_pct": 60.0},
+        {"name": "Selen Sönmezateş", "ownership_pct": 40.0}
+      ],
+      "company_status": "active"
+    },
+    "circular": {
+      "document_date": "2024-11-22",
+      "legal_name": "Doruk Kablo Sanayi ve Ticaret Anonim Şirketi",
+      "tax_id": "2846195730",
+      "authorized_signatories": [
+        {"name": "Barış Sönmezateş", "authority_type": "sole", "valid_until": "2028-11-22"}
+      ],
+      "notary_reference": "Manisa 6. Noterliği 2024/28471"
+    },
+    "ubo": {
+      "document_date": "2025-05-30",
+      "legal_name": "Doruk Kablo Sanayi ve Ticaret Anonim Şirketi",
+      "tax_id": "2846195730",
+      "shareholders": [
+        {"name": "Barış Sönmezateş", "ownership_pct": 60.0},
+        {"name": "Selen Sönmezateş", "ownership_pct": 40.0}
+      ],
+      "declared_ubo": [
+        {"name": "Barış Sönmezateş", "ultimate_ownership_pct": 60.0, "ownership_path": "doğrudan pay sahipliği"},
+        {"name": "Selen Sönmezateş", "ultimate_ownership_pct": 55.0, "ownership_path": "doğrudan pay sahipliği"}
+      ],
+      "declarant_name": "Barış Sönmezateş"
+    }
+  },
+  "decision_truth": {
+    "expected_decision": "escalate",
+    "expected_trajectory": [
+      "extract",
+      "resolve_entities",
+      "check_identity_consistency",
+      "check_ownership_consistency",
+      "check_authority_chain",
+      "check_ubo_derivation",
+      "check_completeness",
+      "synthesize",
+      "guardrail",
+      "act"
+    ],
+    "expected_skipped_checks": [],
+    "injected_codes": ["D1b"],
+    "rationale": "Beyan edilen nihai faydalanıcı payları %115'e toplanıyor (%60 + %55) — nihai sahiplik toplamının %100'ü aşması yapısal olarak imkânsızdır ve iyi niyetli bir okuması yoktur → D1b, unexplainable, escalate. Yapısal imkânsızlık kontrolü eşik-üstü eksik beyan kontrolünden önce gelip erken döndüğü için D1a üretilmez. Ortaklık listeleri (B1 ve B3) kasıtlı olarak özdeş ve %100'e toplanır; böylece tutarsızlık yalnızca declared_ubo alanında kalır ve B kodlarına taşmaz."
+  }
+}

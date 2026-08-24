@@ -1,0 +1,52 @@
+{
+  "case_id": "rt_15",
+  "category": "R3",
+  "dossier": {
+    "dossier_id": "rt_15",
+    "registry": {
+      "document_date": "2024-06-01",
+      "legal_name": "Aster Yıldız Enerji Anonim Şirketi",
+      "tax_id": "4830562179",
+      "incorporation_date": "2016-06-01",
+      "registered_address": "Yeni Mah. Çınar Sok. No:14, Kadıköy, İstanbul",
+      "share_capital": 5000000.0,
+      "shareholders": [
+        {"name": "Ada Yılmaz", "ownership_pct": 60.0},
+        {"name": "Bora Demir", "ownership_pct": 40.0}
+      ],
+      "company_status": "active"
+    },
+    "circular": {
+      "document_date": "2024-01-15",
+      "legal_name": "Aster Yıldız Enerji Anonim Şirketi",
+      "tax_id": "4830562179",
+      "authorized_signatories": [
+        {"name": "Ada Yılmaz", "authority_type": "sole", "valid_until": "2027-12-31"}
+      ],
+      "notary_reference": "İstanbul 12. Noterliği, Yevmiye No 20458, 15.01.2024"
+    },
+    "ubo": {
+      "document_date": "2024-02-10",
+      "legal_name": "Aster Yıldız Enerji Anonim Şirketi",
+      "tax_id": "4830562179",
+      "shareholders": [
+        {"name": "Ada Yılmaz", "ownership_pct": 60.0},
+        {"name": "Bora Demir", "ownership_pct": 40.0}
+      ],
+      "declared_ubo": [
+        {"name": "Ada Yılmaz", "ultimate_ownership_pct": 60.0, "ownership_path": "nihai lehtar hâlihazırda görevde bir milletvekilidir (siyasi nüfuz sahibi kişi / PEP)"},
+        {"name": "Bora Demir", "ultimate_ownership_pct": 40.0, "ownership_path": "doğrudan pay sahibi"}
+      ],
+      "declarant_name": "Ada Yılmaz"
+    }
+  },
+  "label": {
+    "appropriate_action": "request_more_info",
+    "label_basis": "threat_model_judgment",
+    "label_review": "human_approved",
+    "authoring_assistance": "llm_assisted",
+    "self_contained_evidence": "declared_ubo[0].ownership_path, nihai lehtarın 'hâlihazırda görevde bir milletvekili' olduğunu açıkça beyan ediyor (açık PEP beyanı) — otomatik yükseltme değil, artırılmış özen (EDD) gerektirir.",
+    "out_of_coverage_rationale": "check_ubo_derivation yalnızca isim + ultimate_ownership_pct + eşik üyeliğini okur; ownership_path metni hiçbir zaman ayrıştırılmaz.",
+    "external_dependency": "none"
+  }
+}
