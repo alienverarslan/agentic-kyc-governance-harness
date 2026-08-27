@@ -5,7 +5,7 @@
 This is the ONLY writer of ``holdout/manifest.json`` and ``seed/hash_pin.json``. Both are
 hash pins that tests then enforce, so they must be produced by the same canonicalization
 the tests verify against (``eval.provenance.sha256_of`` / ``hash_corpus``, reused verbatim
-from P5) — a hand-written hash would be unverifiable by construction.
+from P5) — a manually typed hash would be unverifiable by construction.
 
 Three safeguards, all of them load-bearing
 ------------------------------------------
@@ -187,6 +187,11 @@ def build_manifest(corpus_version: str) -> dict[str, Any]:
         "corpus_version": corpus_version,
         "frozen_at_utc": now.strftime("%Y-%m-%dT%H:%M:%SZ"),
         "scope": "in_coverage",
+        # The next two strings are the VERBATIM text of the already-frozen manifest. The
+        # word "hand-authored" is inaccurate as authorship provenance — the case texts were
+        # LLM-assisted and human-reviewed (see ERRATA.md) — but these constants are NOT
+        # corrected here: they must stay byte-identical to the frozen artifact they
+        # produced, and a frozen record is never retroactively rewritten.
         "scope_note": (
             "Novel hand-authored cases whose issues fall INSIDE the deterministic checks' "
             "existing coverage. Measures generalization to novel cases, not to novel "

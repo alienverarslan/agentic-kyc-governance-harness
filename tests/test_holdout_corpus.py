@@ -1,5 +1,5 @@
 """P2 — the frozen holdout corpus itself: does the deterministic engine generalize to
-novel, hand-authored, in-coverage cases it has never seen?
+novel, curated, in-coverage cases it has never seen?
 
 Framing that must not drift (see docs/p2_design.md):
 

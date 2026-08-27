@@ -40,7 +40,8 @@ def test_corpus_is_labelled_out_of_sample(report):
     corpus = report["corpus"]
     assert corpus["sample_relationship"] == "out_of_sample"
     assert corpus["data_class"] == "synthetic"
-    assert corpus["authoring"] == "hand_authored"
+    assert corpus["authoring"] == "llm_assisted_human_reviewed"
+    assert corpus["derivation"] == "curated_not_generator_drawn"
     assert corpus["coverage_scope"] == "in_coverage"
 
 
@@ -67,7 +68,7 @@ def test_holdout_report_contains_no_generator_corpus_data(report):
     """A merged or contaminated artifact would show generator case ids or a generator seed."""
     corpus = report["corpus"]
     assert corpus["name"] == "deterministic_holdout"
-    assert "seed" not in corpus, "a generator seed has no meaning for a hand-authored corpus"
+    assert "seed" not in corpus, "a generator seed has no meaning for a curated corpus"
     assert "per_code" not in corpus
     case_ids = {
         c for surface in [report["metrics"]["deterministic_engine"]] for c in surface.get("by_taxonomy_code", {})

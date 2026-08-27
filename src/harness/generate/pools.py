@@ -1,6 +1,6 @@
 """Curated Turkish data pools for synthetic dossiers.
 
-Small, hand-picked vocabularies so generated dossiers look plausibly Turkish (correct
+Small, curated vocabularies so generated dossiers look plausibly Turkish (correct
 diacritics, real legal-form suffixes) while varying enough to exercise normalization and
 matching. Kept separate from the generation logic so the vocabulary can grow without
 touching recipes.

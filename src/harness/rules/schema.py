@@ -1,7 +1,7 @@
 """Declarative rule schema (Faz 3): the machinery a learned rule is built from.
 
 Design commitment, mirroring the rest of the harness ("LLM proposes, deterministic code
-disposes"): a ``RuleTemplate`` is hand-written, vetted Python — it is registered once by
+disposes"): a ``RuleTemplate`` is vetted, version-controlled Python — it is registered once by
 a developer, exactly like a check in ``harness.agent.checks``. A ``CandidateRule`` is the
 ONLY thing an LLM-assisted proposer (Faz 3, part 2) may author, and it is nothing but a
 ``template_id`` plus a flat dict of numeric ``params``. There is no field through which a
@@ -37,7 +37,7 @@ class ParamSpec:
 
 @dataclass(frozen=True)
 class RuleTemplate:
-    """A vetted, hand-written rule shape. Everything except ``params`` values is fixed
+    """A vetted, version-controlled rule shape. Everything except ``params`` values is fixed
     by whoever registers the template — a proposer only ever fills in numbers."""
 
     template_id: str

@@ -30,7 +30,8 @@ says nothing about unknown failure modes, and a P4 FAR above 0 would not be a P2
 
 **This corpus is not a blinded external benchmark, and must never be described as one.**
 
-The author read `checks.py` in detail before writing the fixtures, and constructed cases
+The case-construction process was non-blinded: `checks.py` was inspected in detail before
+the LLM-assisted cases were authored and human-reviewed, and the cases were placed
 deliberately inside the known taxonomy — which is partly unavoidable, since staying
 in-coverage requires knowing the coverage. Consequently:
 
@@ -48,7 +49,8 @@ rule-promotion process were never tuned against these frozen cases.**
 
 ## The corpus
 
-18 hand-authored cases, `src/harness/data/holdout/case_hold_01..18.json`.
+18 curated cases, `src/harness/data/holdout/case_hold_01..18.json`. Case texts were
+authored with LLM assistance and reviewed and approved by the author (see `ERRATA.md`).
 
 | Property | Value |
 |---|---|
@@ -56,7 +58,7 @@ rule-promotion process were never tuned against these frozen cases.**
 | Decision classes | 4 approve / 8 request_more_info / 6 escalate |
 | Compound cases | 2 (`A1+B2a` info+explainable → request_more_info; `A2+B1a` unexplainable+explainable → escalate) |
 
-**Hand-authored, never a generator draw.** Drawing from the generator with a different seed
+**Curated, never a generator draw.** Drawing from the generator with a different seed
 would test reproducibility, not generalization — the recipes, and therefore the failure
 modes they can express, would be identical.
 
@@ -195,7 +197,8 @@ selection, provenance, labelling and an integrity guard — no new statistics.
 
 **Never averaged with the development report.** The generator corpus is labelled
 `sample_relationship: "in_sample"`; the holdout is `"out_of_sample"` and additionally
-`synthetic` / `hand_authored` / `in_coverage`. A merged headline would be neither figure,
+`synthetic` / `llm_assisted_human_reviewed` / `curated_not_generator_drawn` /
+`in_coverage`. A merged headline would be neither figure,
 and the 420-case in-sample corpus would numerically drown 18 held-out cases.
 
 **Integrity guard.** The report re-verifies the live corpus against its frozen manifest at

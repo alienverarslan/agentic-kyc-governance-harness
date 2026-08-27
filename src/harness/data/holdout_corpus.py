@@ -1,4 +1,4 @@
-"""P2 — loaders for the FROZEN, hand-authored holdout corpus.
+"""P2 — loaders for the FROZEN, curated (not generator-drawn) holdout corpus.
 
 This module is the ONLY route into ``src/harness/data/holdout/``. Everything about it is
 shaped by one requirement: the holdout must never influence the thing it measures.
@@ -20,7 +20,8 @@ the module wins over the namespace-package directory; the day someone adds an
 
 Scope of the corpus (load-bearing, see docs/p2_design.md)
 ---------------------------------------------------------
-This is an **in-coverage** holdout: 18 hand-authored cases whose issues all fall inside
+This is an **in-coverage** holdout: 18 curated cases (LLM-assisted authoring, human-
+reviewed labels; see ERRATA.md) whose issues all fall inside
 the deterministic checks' EXISTING coverage. It measures generalization to novel *cases*,
 not to novel *phenomena*. Out-of-coverage generalization is P4's job, where a nonzero
 deterministic false-approval rate is the expected finding rather than a violated

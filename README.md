@@ -78,11 +78,11 @@ pairs are **minimal-difference pairs**:
 - **#6 (C1a) vs #7 (C1b)** differ only in the signature-circular date direction. If the
   eval cannot separate them, the bug is in the authority check's branch logic.
 
-Because each case localizes a failure, 8 hand-authored cases buy more diagnostic signal
+Because each case localizes a failure, 8 curated cases buy more diagnostic signal
 than 80 random ones. **Statistical scale** — many parametric variants per taxonomy code —
 is delivered by the slice-2 synthetic generator (below): *generated* and validated against
-these fixtures, not hand-authored. The fixtures are read-only ground truth: if a case
-fails, you fix the check, never the data.
+these fixtures, rather than curated case by case. The fixtures are read-only ground truth:
+if a case fails, you fix the check, never the data.
 
 | # | code | decision | trap encoded |
 |---|------|----------|--------------|
@@ -247,7 +247,23 @@ indexes those identifiers and adds no new claim.
 * [`docs/p5_design.md`](docs/p5_design.md) — scientific reporting: Wilson intervals,
   provenance, and the separated result surfaces.
 * [`DECISIONS.md`](DECISIONS.md) — the design commitments and every recorded assumption.
+* [`ERRATA.md`](ERRATA.md) — dated corrections to statements published here. Frozen
+  artifacts keep their original bytes; corrections are additive.
+
+## Corpus provenance
+
+All three fixture corpora — the 8 seed diagnostics, the 18 in-coverage holdout cases, and
+the 30 out-of-coverage red-team cases — are **curated, not generator-drawn**: no case is a
+draw from the synthetic generator. Their case texts were **authored with LLM assistance**
+during an AI-assisted development process and then **reviewed and approved by the author**;
+the red-team fixtures record this per case in `authoring_assistance` / `label_review`.
+Threat-model labels are the author's reviewed judgments, not externally validated ground
+truth. Earlier wording described the corpora as "hand-authored" — see [`ERRATA.md`](ERRATA.md).
 
 ## License
 
-MIT — see [`LICENSE`](LICENSE). Security reporting: [`SECURITY.md`](SECURITY.md).
+Code: MIT — see [`LICENSE`](LICENSE).
+Synthetic corpora and their dataset metadata: **CC BY 4.0** — see
+[`DATA-LICENSE.md`](DATA-LICENSE.md). An MIT grant over source code does not automatically
+cover a dataset shipped with it, so the data is licensed separately and explicitly.
+Security reporting: [`SECURITY.md`](SECURITY.md).

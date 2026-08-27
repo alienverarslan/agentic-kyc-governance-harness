@@ -62,7 +62,7 @@ def test_missing_params_are_rejected():
 
 def test_accepted_proposal_still_must_pass_the_gate_independently():
     # A structurally-accepted proposal is not automatically safe: it goes through the
-    # exact same non-regression gate as a hand-authored candidate rule.
+    # exact same non-regression gate as a directly constructed candidate rule.
     stub = ScriptedProposerStub(
         template_id="capital_age_ceiling",
         params={"max_age_days": 180, "max_capital": 10_000_000},

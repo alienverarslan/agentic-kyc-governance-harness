@@ -1,6 +1,8 @@
 # Seed Dataset — doc-consistency-governance-harness (slice-1)
 
-8 hand-authored dossiers. Each isolates exactly ONE taxonomy code (clean cases: NONE).
+8 curated dossiers — case by case, never a generator draw; texts authored with LLM
+assistance and reviewed by the author (see `ERRATA.md`). Each isolates exactly ONE
+taxonomy code (clean cases: NONE).
 Committed as reference fixtures under `data/seed/`; the generator is validated AGAINST
 this set, not the other way around.
 
