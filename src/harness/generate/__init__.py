@@ -1,6 +1,6 @@
 """Slice-2: parametric synthetic dossier generation.
 
-Turns the 8 hand-authored diagnostic fixtures into statistical scale. For each taxonomy
+Turns the 8 curated diagnostic fixtures into statistical scale. For each taxonomy
 code the generator has a recipe that perturbs a fully-consistent "clean base" dossier so
 that EXACTLY ONE code is triggered and everything else stays clean; because it builds the
 case, it also knows the correct answer (ground truth) without human labeling.

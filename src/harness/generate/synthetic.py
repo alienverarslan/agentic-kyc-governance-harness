@@ -189,7 +189,7 @@ def expected_flow(has_reg: bool, has_circ: bool, has_ubo: bool) -> tuple[list[st
     """The trajectory + skipped set the graph will produce for the given documents.
 
     Mirrors the check preconditions in ``harness.agent.graph``. This logic is independently
-    anchored by the hand-authored fixtures (e.g. seed #8), so using it to label generated
+    anchored by the curated seed fixtures (e.g. seed #8), so using it to label generated
     E1 cases does not make the generator grade its own homework on trajectory."""
     present = sum([has_reg, has_circ, has_ubo])
     runs = {

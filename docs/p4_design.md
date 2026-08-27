@@ -13,7 +13,10 @@ P4(b) — `src/harness/eval/redteam_record.py`, the offline corpus-admission-and
 
 P4(c) — `src/harness/eval/redteam_live.py`, the key-gated live-triage measurement — is
 implemented and under review. It is the first and only P4 surface that produces an empirical
-number; § Live-triage protocol is its fixed contract. No live session has been run.
+number; § Live-triage protocol is its fixed contract. This design was frozen before live
+execution. A live P4(c) session was subsequently run on 12 August 2026; see the published
+[evidence](evidence/p4c/20260812T195516Z-p4c/redteam_live_session_public.json) and
+[provenance record](evidence/p4c/20260812T195516Z-p4c/PROVENANCE.md).
 This note is the contract, refined across adversarial design review and approved as a
 design input. `DECISIONS.md` carries the short record for each landed phase; this file is the
 long form. It deliberately mirrors `docs/p2_design.md` in structure, because P4 is the
@@ -37,12 +40,17 @@ not estimate or quantify general real-world residual risk, nor does it drive suc
 zero.**
 
 **What P4 is not.** P4 is a **synthetic, author-constructed, non-blinded** out-of-coverage
-red-team evaluation. It is explicitly **not**:
+red-team evaluation. *Author-constructed* here is a statement about where the corpus came
+from — built inside this project by the party running the evaluation, with knowledge of the
+coverage, rather than sourced externally or blindly — and **not** a claim about who typed
+the case texts: those were authored with LLM assistance and human-reviewed (see
+`ERRATA.md`). It is explicitly **not**:
 
 * a real adversarial assessment or penetration test,
 * an external or independently-labelled benchmark,
-* a blinded study (the author read `checks.py`, `coverage.py`, and the promoted rule to
-  construct cases that fall *outside* coverage — which requires knowing the coverage),
+* a blinded study (`checks.py`, `coverage.py`, and the promoted rule were inspected before
+  the cases were constructed, so that they fall *outside* coverage — which requires knowing
+  the coverage),
 * a real-world robustness, fraud-detection, or production-readiness claim.
 
 The load-bearing, defensible claim is narrow: **under the pinned offline deterministic
@@ -62,7 +70,10 @@ and it is untouched here.
 
 ## The corpus: 30 cases, six categories × five
 
-Hand-authored, `src/harness/data/redteam/case_rt_01..30.json`.
+Curated, never a generator draw: `src/harness/data/redteam/case_rt_01..30.json`. Case texts
+were authored with LLM assistance and their labels reviewed and approved by the author —
+exactly as each fixture's `authoring_assistance` / `label_review` fields record (see
+`ERRATA.md`).
 The matrix is **fixed** as approved. Observed action distribution — **kept as an observed
 result, never a quota** — is **23 request_more_info / 7 escalate / 0 approve**.
 

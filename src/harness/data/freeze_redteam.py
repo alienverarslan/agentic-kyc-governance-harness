@@ -4,7 +4,7 @@
 
 This is the ONLY writer of ``redteam/manifest.json``. The manifest is a hash pin that tests
 then enforce, so it must be produced by the same canonicalization the tests verify against
-(``eval.provenance`` primitives, reused from P5) — a hand-written hash would be unverifiable
+(``eval.provenance`` primitives, reused from P5) — a manually typed hash would be unverifiable
 by construction.
 
 **Status.** This tool has been run once, against the complete 30-fixture corpus, and produced
@@ -200,6 +200,11 @@ def build_manifest(corpus_version: str) -> dict[str, Any]:
         "corpus_name": "redteam_out_of_coverage",
         "corpus_version": corpus_version,
         "scope": "out_of_coverage",
+        # VERBATIM text of the already-frozen manifest. "Hand-authored" is inaccurate as
+        # authorship provenance — the case texts were LLM-assisted and human-reviewed, as
+        # every fixture's own `authoring_assistance` field records (see ERRATA.md) — but
+        # this constant is NOT corrected here: it must stay byte-identical to the frozen
+        # artifact it produced, and a frozen record is never retroactively rewritten.
         "scope_note": (
             "Hand-authored synthetic threat-model concerns, each falling OUTSIDE every "
             "deterministic check's declared scope under the pinned config. Deterministic "

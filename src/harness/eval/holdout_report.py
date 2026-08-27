@@ -16,8 +16,10 @@ it is enforced structurally: a distinct ``run_type``, a distinct output director
 tests asserting no shared artifact path.
 
 **Scope of the holdout claim, restated at the point of publication.** This corpus is
-hand-authored, synthetic, and in-coverage, and its author had read the deterministic
-checks. It is NOT a blinded external benchmark. "Out-of-sample" here means *held out from
+curated (not generator-drawn), synthetic, and in-coverage. Its construction process was
+non-blinded: the deterministic checks were inspected before the LLM-assisted cases were
+authored and human-reviewed.
+It is NOT a blinded external benchmark. "Out-of-sample" here means *held out from
 the development and tuning loop*, not *drawn from a different distribution* and not
 *independently labelled*. Every rate below carries raw k/n and a Wilson 95% CI, per P5
 house style, and the observed false-approval rate is empirical and corpus-scoped — never a
@@ -65,14 +67,18 @@ SAMPLE_RELATIONSHIP = "out_of_sample"
 # The scope qualifiers travel WITH the numbers, inside the artifact, so a reader who sees
 # only the JSON still cannot mistake this for a blind external benchmark.
 CORPUS_SCOPE_NOTE = (
-    "Hand-authored, synthetic, in-coverage corpus held out from the development and tuning "
+    "Curated (not generator-drawn), synthetic, in-coverage corpus held out from the "
+    "development and tuning "
     "loop: excluded from the rule-promotion gate, the generator, the anomaly builder and "
     "normal development runs, and frozen (hash-pinned) before any reporting. It is NOT a "
-    "blinded external benchmark — the author inspected the deterministic checks to author "
-    "cases inside the known taxonomy. 'Out-of-sample' therefore means held out from tuning, "
+    "blinded external benchmark — the construction process was non-blinded: the "
+    "deterministic checks were inspected before the cases were authored, placing them "
+    "inside the known taxonomy. 'Out-of-sample' therefore means held out from tuning, "
     "not drawn from a different distribution and not independently labelled. It does not "
     "measure discovery of unknown failure modes, independent-labeler agreement, or "
-    "real-world generalization; those remain P4/red-team questions."
+    "real-world generalization; those remain P4/red-team questions. Case texts were "
+    "authored with LLM assistance and reviewed and approved by the author; the labels "
+    "are reviewed judgments, not externally validated ground truth (see ERRATA.md)."
 )
 
 FAR_EMPIRICAL_NOTE = (
@@ -123,7 +129,7 @@ def _record_from_case(case_id: str, case: Case, result: AgentResult) -> RunRecor
 
     Mirrors ``scientific_report._record_from_result`` exactly — including excluding
     SYSTEM-origin findings from the domain code set — but reads a ``Case`` rather than a
-    ``GeneratedCase``, since the holdout is hand-authored rather than generated.
+    ``GeneratedCase``, since the holdout is curated rather than generated.
     """
     truth = case.decision_truth
     agent_codes = sorted({f.code for f in result.findings if f.origin != "system"}) or ["NONE"]
@@ -193,7 +199,11 @@ def build_holdout_report() -> dict[str, Any]:
         # Labels that keep this artifact from being read as the development one.
         "sample_relationship": SAMPLE_RELATIONSHIP,
         "data_class": "synthetic",
-        "authoring": "hand_authored",
+        # Two facts that the earlier single value "hand_authored" conflated: how the cases
+        # were DERIVED (curated case by case, never a generator draw) and who AUTHORED
+        # them (LLM-assisted drafting, human-reviewed labels). See ERRATA.md.
+        "authoring": "llm_assisted_human_reviewed",
+        "derivation": "curated_not_generator_drawn",
         "coverage_scope": "in_coverage",
         "scope_note": CORPUS_SCOPE_NOTE,
         "separation_note": (

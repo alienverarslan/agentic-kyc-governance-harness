@@ -91,7 +91,12 @@ from harness.llm.stub import PolicyMirrorStub
 from harness.rules.store import load_promoted_rules
 
 RECORD_SCHEMA = "redteam_admission_record"
-RECORD_SCHEMA_VERSION = "1.0.0"
+# 2.0.0: BREAKING. `corpus.authoring` no longer emits "hand_authored"; it emits
+# "llm_assisted_human_reviewed", and a separate `corpus.derivation` key was added. Removing
+# a value from a field's domain breaks any consumer that branches on the literal, so this is
+# a major bump even though no field was removed or renamed. Nothing in this repository
+# parses either value. See ERRATA.md.
+RECORD_SCHEMA_VERSION = "2.0.0"
 RUN_TYPE = "redteam_out_of_coverage"
 
 DEFAULT_OUT_DIR = "artifacts/p4_redteam"
@@ -403,7 +408,11 @@ def _build_corpus_block(manifest: dict[str, Any]) -> dict[str, Any]:
         "frozen_at_utc": manifest["provenance"]["frozen_at_utc"],
         "frozen_git": dict(manifest["git"]),
         "data_class": "synthetic",
-        "authoring": "hand_authored",
+        # Three separate facts, previously conflated into the single value "hand_authored":
+        # who AUTHORED the case texts, how they were DERIVED, and the blindness context in
+        # which the corpus was constructed. See ERRATA.md.
+        "authoring": "llm_assisted_human_reviewed",
+        "derivation": "curated_not_generator_drawn",
         "authoring_context": "author_constructed_non_blinded",
         "corpus_relationship": "fixed_synthetic_challenge_set",
         "coverage_scope": manifest["scope"],
@@ -577,8 +586,9 @@ def render_markdown(record: dict[str, Any]) -> str:
     )
     lines.append(
         _kv(
-            "data_class / authoring / authoring_context",
-            f"{corpus['data_class']} / {corpus['authoring']} / {corpus['authoring_context']}",
+            "data_class / authoring / derivation / authoring_context",
+            f"{corpus['data_class']} / {corpus['authoring']} / {corpus['derivation']} / "
+            f"{corpus['authoring_context']}",
         )
     )
     lines.append(_kv("corpus_relationship", corpus["corpus_relationship"]))

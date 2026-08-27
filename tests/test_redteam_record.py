@@ -108,7 +108,7 @@ def _nothing_was_created(tmp_path):
 def test_record_declares_the_p4b_schema_run_type_and_filenames():
     record = redteam_record.build_admission_record()
     assert record["schema"] == "redteam_admission_record"
-    assert record["schema_version"] == "1.0.0"
+    assert record["schema_version"] == "2.0.0"
     assert record["run"]["run_type"] == "redteam_out_of_coverage"
     assert redteam_record.JSON_FILENAME == "redteam_admission_record.json"
     assert redteam_record.MD_FILENAME == "redteam_admission_record.md"
@@ -145,7 +145,8 @@ def test_corpus_block_carries_identity_and_frozen_git_provenance():
     assert corpus["case_count"] == 30
     assert set(corpus["frozen_git"]) == {"head_commit_sha", "branch", "worktree_dirty"}
     assert corpus["data_class"] == "synthetic"
-    assert corpus["authoring"] == "hand_authored"
+    assert corpus["authoring"] == "llm_assisted_human_reviewed"
+    assert corpus["derivation"] == "curated_not_generator_drawn"
     assert corpus["authoring_context"] == "author_constructed_non_blinded"
     assert corpus["corpus_relationship"] == "fixed_synthetic_challenge_set"
     assert corpus["coverage_scope"] == "out_of_coverage"
@@ -385,6 +386,18 @@ def test_per_case_entries_carry_no_invented_result_summary_field(case_id):
 # ========================================================================================
 # Group 6 — two Git SHAs kept in separate sections with separate notes (REAL corpus)
 # ========================================================================================
+def test_corpus_identity_section_renders_all_three_provenance_axes():
+    """The rendered record must not drop `derivation`: authorship provenance, derivation and
+    blindness context are three distinct facts, and rendering only two of them reproduces the
+    conflation the "hand_authored" wording caused (see ERRATA.md)."""
+    record = redteam_record.build_admission_record()
+    md = redteam_record.render_markdown(record)
+    section = md[md.index("## Corpus identity") : md.index("## Pinned configuration")]
+    assert "llm_assisted_human_reviewed" in section
+    assert "curated_not_generator_drawn" in section
+    assert "author_constructed_non_blinded" in section
+
+
 def test_corpus_identity_section_carries_anchor_and_bootstrap_notes_only():
     record = redteam_record.build_admission_record()
     md = redteam_record.render_markdown(record)

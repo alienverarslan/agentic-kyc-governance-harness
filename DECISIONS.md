@@ -178,7 +178,7 @@ win and the reasoning is recorded here.
   which the completeness check flags as E2 without creating a cross-document mismatch.
 
 - **Trajectory ground truth for generated cases** is computed by `expected_flow()` mirroring
-  the graph's check preconditions. That logic is independently anchored by the hand-authored
+  the graph's check preconditions. That logic is independently anchored by the curated seed
   fixtures (seed #8), so it is not the generator grading its own homework.
 
 ## Faz 1+2 — coverage catalog + AI triage layer
@@ -241,7 +241,7 @@ probabilistic layer harder (trading away precision), this codifies that one anom
 into a deterministic, human-approved check, and builds the general machinery so any future
 LLM-detected pattern can be closed the same way.
 
-- **Declarative schema (`rules/schema.py`).** A `RuleTemplate` is hand-written, vetted
+- **Declarative schema (`rules/schema.py`).** A `RuleTemplate` is vetted, version-controlled
   Python registered once by a developer — exactly like a check in `agent/checks.py`. A
   `CandidateRule` is the ONLY object an LLM-assisted proposer (Faz 3 part 2, not yet built)
   may author: a `template_id` plus a flat `dict[str, float]` of params. There is no field
@@ -317,7 +317,7 @@ LLM-detected pattern can be closed the same way.
 
 - **Live result:** given the 3 `implausible_capital` miss descriptions as evidence, the
   real model proposed `capital_age_ceiling(max_age_days=90, max_capital=75_000_000)` —
-  tighter than the hand-picked example used earlier in this phase — with a sound written
+  tighter than the example used earlier in this phase — with a sound written
   rationale (avoiding false positives on legitimately young, well-capitalized group
   subsidiaries). The gate passed: 0 regressions across all 428 known cases, 3/3 anomaly
   cases caught. The rule was promoted (`approved_by="Arslan"`).
@@ -405,19 +405,20 @@ Full contract in `docs/milestone2_design.md`; the decisions now in effect:
 
 Full contract in `docs/p2_design.md`; the decisions now in effect:
 
-- **In-coverage, not out-of-coverage.** The 18 hand-authored cases all fall inside the
+- **In-coverage, not out-of-coverage.** The 18 curated cases all fall inside the
   deterministic checks' existing coverage, so P2 measures generalization to novel CASES, not
   novel PHENOMENA. Out-of-coverage generalization is P4's job, where a nonzero deterministic
   FAR is the intended finding rather than a violated invariant.
 
-- **Not a blinded external benchmark, and never described as one.** The author read
-  `checks.py` before authoring, which staying in-coverage requires. "Held out" means held out
+- **Not a blinded external benchmark, and never described as one.** The construction process
+  was non-blinded: `checks.py` was inspected before the LLM-assisted cases were authored and
+  human-reviewed, which staying in-coverage requires. "Held out" means held out
   from the development and tuning loop — excluded from the promotion gate, generator, anomaly
   builder and normal runs, and frozen before reporting. It does NOT mean a different
   distribution, independent labelling, or blind authoring. P2 measures none of: unknown
   failure-mode discovery, independent-labeler agreement, real-world generalization.
 
-- **Hand-authored, never a generator draw.** A different generator seed would test
+- **Curated, never a generator draw.** A different generator seed would test
   reproducibility, not generalization. The 2 compound cases (`A1+B2a`, `A2+B1a`) are shapes
   the single-injector generator structurally cannot produce, so the guardrail's max-severity
   composition is exercised on unseen data. Independence from `generate/pools.py` is an
@@ -491,7 +492,7 @@ Full contract in `docs/p2_design.md`; the decisions now in effect:
   cannot be separated from the number.
 
 - **The P5 Markdown renderer no longer assumes a generated corpus.** It hard-coded
-  `corpus['seed']`, which a hand-authored corpus does not have. Fabricating a seed to satisfy
+  `corpus['seed']`, which a curated corpus does not have. Fabricating a seed to satisfy
   the renderer would have put a fictional reproducibility parameter into an audit artifact,
   so the renderer now renders the fields actually present (and appends `sample_relationship`
   when set). Caught by the holdout tests, which correctly forbid a seed on this corpus.
@@ -514,7 +515,7 @@ Full contract in `docs/p2_design.md`; the decisions now in effect:
 
 Full contract in `docs/p4_design.md`; the decisions now in effect:
 
-- **Out-of-coverage, synthetic, author-constructed, non-blinded.** 30 hand-authored cases (6
+- **Out-of-coverage, synthetic, author-constructed, non-blinded.** 30 curated cases (6
   categories × 5) whose concerns fall outside every deterministic check's declared scope under
   the pinned configuration. Explicitly not an adversarial assessment, external benchmark,
   blinded study, or real-world robustness claim; it measures behavior on a fixed synthetic
@@ -675,3 +676,39 @@ Full contract in `docs/p4_design.md`; the decisions now in effect:
   dict equality in `tests/test_anthropic_client.py`, which previously did not exist. P4(c) is
   the first caller to pin them, using `max_retries=0` so that its own bounded wrapper is the
   only retry layer and the call ceiling means what it says.
+
+## Provenance correction — "hand-authored" (2026-08-26)
+
+- **The corpora were misdescribed; the correction is recorded prospectively rather than by
+  rewriting frozen artifacts.** All three
+  fixture corpora were described as "hand-authored". That is accurate as *derivation*
+  (curated case by case, never a generator draw) and inaccurate as *authorship provenance*
+  (the case texts were LLM-assisted and human-reviewed). The two senses are now stated
+  separately everywhere they appear. Full entry in `ERRATA.md`.
+
+- **Frozen records were not rewritten.** `holdout/manifest.json`, `redteam/manifest.json`,
+  `seed/hash_pin.json`, all 56 fixture JSONs, and the published P4(c) evidence keep their
+  original bytes. The manifest-text constants inside `freeze_holdout.py` and
+  `freeze_redteam.py` also keep the original wording, because they must stay byte-identical
+  to the artifacts they produced; each now carries an adjacent comment pointing at the
+  errata. A published admission record therefore still reproduces "Hand-authored" verbatim
+  from the frozen `scope_note` — that is the historical record, and the errata is the
+  correction. Editing a frozen record to look better is exactly what this project's
+  versioned-re-triage rule exists to forbid.
+
+- **Two label values changed, and the bump is MAJOR, not additive.** `corpus.authoring`
+  moved from `hand_authored` to `llm_assisted_human_reviewed` in both the P4(b) admission
+  record (`redteam_admission_record` 1.0.0 → **2.0.0**) and the P2 holdout report (shared
+  report schema 1.0.0 → **2.0.0**), and both records gained a separate `corpus.derivation:
+  "curated_not_generator_drawn"` so derivation and authorship are no longer carried by one
+  conflated value. Adding a field is additive; **removing a value from a field's domain is
+  not** — it breaks any consumer branching on the literal, which is why this is a major bump
+  even though nothing in this repository parses either value. The development report shares
+  the envelope version and carries the bump with no content change of its own.
+  `authoring_context: "author_constructed_non_blinded"` is deliberately unchanged: it
+  describes where the corpus came from and under what blindness, not who typed the cases.
+
+- **The synthetic corpora are licensed separately from the code.** MIT covers the source;
+  an MIT grant over program source does not automatically extend to a dataset shipped with
+  it. The three corpora and their dataset metadata are CC BY 4.0 (`DATA-LICENSE.md`), which
+  permits commercial use with attribution.

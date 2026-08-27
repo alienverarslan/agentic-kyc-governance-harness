@@ -1,4 +1,4 @@
-"""P4 — loaders for the FROZEN, hand-authored out-of-coverage red-team corpus.
+"""P4 — loaders for the FROZEN, curated out-of-coverage red-team corpus.
 
 This module is the ONLY route into ``src/harness/data/redteam/``. It mirrors P2's holdout
 loader module exactly, for the same reason: physical separation makes the isolation
@@ -10,10 +10,13 @@ module-vs-directory naming lesson P2's holdout loader learned.
 
 Scope of the corpus (load-bearing, see docs/p4_design.md)
 ---------------------------------------------------------
-This is an **out-of-coverage** red-team corpus: 30 hand-authored cases, each carrying a
+This is an **out-of-coverage** red-team corpus: 30 curated cases, each carrying a
 synthetic threat-model concern that the human-approved label judges to warrant
 ``request_more_info`` or ``escalate``, and that falls OUTSIDE every deterministic check's
-declared scope under the pinned configuration.
+declared scope under the pinned configuration. The cases are curated rather than drawn
+from the synthetic generator; their texts were authored with LLM assistance and their
+labels reviewed and approved by the author, exactly as each fixture's own
+``authoring_assistance`` / ``label_review`` fields record. See ERRATA.md.
 
 Deterministic approval of an admitted case is an INTENTIONAL CORPUS-ADMISSION PROPERTY, not a
 violation of the ``false_approval_rate = 0`` invariant (which is scoped to evaluated

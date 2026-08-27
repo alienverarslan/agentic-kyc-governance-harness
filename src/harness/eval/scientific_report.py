@@ -50,7 +50,12 @@ from harness.rules.store import load_promoted_rules
 # attribution. Matches the guardrail's precedence: approve < request_more_info < escalate.
 _DECISION_RANK = {"approve": 0, "request_more_info": 1, "escalate": 2}
 
-SCHEMA_VERSION = "1.0.0"
+# 2.0.0: BREAKING for the holdout run type — `corpus.authoring` no longer emits
+# "hand_authored" but "llm_assisted_human_reviewed", and a separate `corpus.derivation` key
+# was added. Removing a value from a field's domain breaks any consumer that branches on the
+# literal. The development run type's content is unchanged; it shares this envelope version,
+# so it carries the bump without a content change of its own. See ERRATA.md.
+SCHEMA_VERSION = "2.0.0"
 
 # The FAR scope sentence — verbatim, reused wherever false_approval_rate is reported so the
 # claim is never accidentally widened into an end-to-end guarantee.
@@ -437,7 +442,7 @@ def render_markdown(report: dict[str, Any], *, title: str | None = None) -> str:
     L.append(f"- run_type: `{run['run_type']}`   timestamp: `{run['timestamp_utc']}`")
     git = run["git"]
     L.append(f"- git: `{git['commit_sha']}`   dirty: `{git['dirty']}`")
-    # `seed` is meaningful only for a GENERATED corpus. A hand-authored corpus (the P2
+    # `seed` is meaningful only for a GENERATED corpus. A curated corpus (the P2
     # holdout) has none, and inventing one to satisfy the renderer would put a fictional
     # reproducibility parameter into an audit artifact. Render what is actually present.
     corpus_line = f"- corpus: `{corpus['name']}` (n={corpus['case_count']}"
